@@ -1,0 +1,656 @@
+<!DOCTYPE html> <html lang="en"><head>
+<title>HP Z2 Mini G1a Review: Running GPT-OSS 120B Without a Discrete GPU</title>
+<base href="..">
+<meta name="pathname" content="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html">
+<meta name="description" content="HP Z2 Mini G1a delivers big AI performance in a compact form, running local LLMs with 96GB shared VRAM and Ryzen AI Max+ Pro 395.">
+<meta property="og:title" content="HP Z2 Mini G1a Review: Running GPT-OSS 120B Without a Discrete GPU">
+<meta property="og:description" content="HP Z2 Mini G1a delivers big AI performance in a compact form, running local LLMs with 96GB shared VRAM and Ryzen AI Max+ Pro 395.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html">
+<meta property="og:image" content="https://www.storagereview.com/wp-content/uploads/2025/10/Storage-Review.png">
+<meta name="author" content="[[StorageReview.com]]"><meta charset="UTF-8"><meta property="og:site_name" content="Obsidian Vault"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="site-lib/rss.xml"><script async="" id="webpage-script" src="site-lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-wasm-script" src="site-lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="site-lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="site-lib/media/favicon.png"><link rel="stylesheet" href="site-lib/styles/obsidian.css"><link rel="preload" href="site-lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="site-lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/main-styles.css"></noscript><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-vertical-spacing:1.3em;--sidebar-margin:12px}:root{background-color:#202124}.sidebar{height:100%;font-size:14px;z-index:10;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));position:relative;overflow:hidden;overflow:clip;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}#left-sidebar{left:0}#right-sidebar{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}.sidebar.floating{position:absolute}.sidebar .leaf-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .leaf-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}#left-sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}#right-sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar #left-sidebar-content,.sidebar #right-sidebar-content{contain:none!important;container-type:normal!important;animation:none!important}.sidebar:has(.leaf-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:calc(2.3em + 2 * var(--sidebar-margin));width:var(--sidebar-width);padding:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}#left-sidebar .sidebar-topbar{left:0;flex-direction:row;border-top-right-radius:var(--radius-l)}#right-sidebar .sidebar-topbar{right:0;flex-direction:row-reverse;border-top-left-radius:var(--radius-l)}#left-sidebar .topbar-content{margin-right:calc(2.3em + var(--sidebar-margin));flex-direction:row}#right-sidebar .topbar-content{margin-left:calc(2.3em + var(--sidebar-margin));flex-direction:row-reverse}.topbar-content{overflow:hidden visible;overflow:clip visible;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:2px!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}#left-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}#right-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.feature-title{margin-left:1px;text-transform:uppercase;letter-spacing:.06em;margin-top:.75em;margin-bottom:.75em}.feature-header{display:flex;align-items:center;padding-top:0;font-size:1em;padding-left:0}body.floating-sidebars .sidebar{position:absolute}body{transition:background-color var(--color-fade-speed) ease-in-out}#navbar:not(:empty){display:flex;align-items:center;justify-content:space-between;padding:.5em 1em;width:100%}#main{display:flex;flex-direction:column;height:100%;width:100%;align-items:stretch;justify-content:center}#main-horizontal{display:flex;flex-direction:row;flex-grow:1;width:100%;align-items:stretch;justify-content:center}#center-content{flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0!important;transition:opacity .2s ease-in-out;pointer-events:none}#center-content>.obsidian-document{padding-left:2em;padding-right:1em;margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}body #center-content>.obsidian-document>.markdown-preview-sizer{padding-bottom:80vh;width:100%;max-width:var(--line-width);flex-basis:var(--line-width);transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document>div{width:100%!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document:not([data-type=markdown]).embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}#center-content>.obsidian-document:not([data-type=markdown]).embed>*{max-width:100%;max-height:100%;object-fit:contain}:not(h1,h2,h3,h4,h5,h6,li):has(> :is(.math,table)){overflow-x:auto!important}#center-content>.obsidian-document:not([data-type=markdown]){overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.obsidian-document[data-type=attachment]{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%}.obsidian-document[data-type=attachment]>*{outline:0;border:none;box-shadow:none}.obsidian-document[data-type=attachment] :is(img){max-width:90%;max-height:90%;object-fit:contain}.obsidian-document[data-type=attachment]>:is(audio){width:100%;max-width:min(90%,var(--line-width))}.obsidian-document[data-type=attachment]>:is(embed,iframe,video){width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.canvas-wrapper>:is(.header,.footer){z-index:100;position:absolute;display:flex;justify-content:center;flex-direction:column;width:100%;align-items:center}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){let e=document.querySelectorAll("link[itemprop='include']");for(const t of e){let e=t.getAttribute("href");try{let o="";if(e.startsWith("https:")||e.startsWith("http:")||"file:"!=window.location.protocol){const n=await fetch(e);if(!n.ok){console.log("Could not include file: "+e),t?.remove();continue}o=await n.text()}else{const t=document.getElementById(btoa(encodeURI(e)));if(t){const e=JSON.parse(decodeURI(atob(t.getAttribute("value")??"")));o=e?.data??""}}let n=document.createRange().createContextualFragment(o);t.before(n),t.remove(),console.log("Included text: "+o),console.log("Included file: "+e)}catch(o){t?.remove(),console.log("Could not include file: "+e,o);continue}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script")));!function e(n){let l=o[n],c=n+1;l?(l&&"true"!=l.getAttribute("loaded")||n<o.length&&e(c),n<o.length&&l.addEventListener("load",(()=>e(c)))):n<o.length?e(c):t()}(0)}</script></head><body class="publish css-settings-manager styled-scrollbars show-inline-title show-ribbon is-focused"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="parsed-feature-container" style="display: contents;"><link itemprop="include" href="site-lib/html/custom-head-content-content.html"></div><div id="main"><div id="navbar"></div><div id="main-horizontal"><div id="left-content" class="leaf" style="--sidebar-width: var(--sidebar-width-left);"><div id="left-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><div id="search-container"><div id="search-wrapper"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div aria-label="Clear search" id="search-clear-button"></div></div></div></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="left-sidebar-content" class="leaf-content"><link itemprop="include" href="site-lib/html/file-tree-content.html"></div></div><script defer="">let ls = document.querySelector("#left-sidebar"); ls.classList.toggle("is-collapsed", window.innerWidth < 768); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div></div><div id="center-content" class="leaf"><div class="obsidian-document markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings allow-fold-lists show-indentation-guide show-properties" data-type="markdown"><style id="MJX-CHTML-styles"></style><pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">title</span><span class="token punctuation">:</span> <span class="token string">"HP Z2 Mini G1a Review: Running GPT-OSS 120B Without a Discrete GPU"</span>
+<span class="token key atrule">source</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//www.storagereview.com/review/hp<span class="token punctuation">-</span>z2<span class="token punctuation">-</span>mini<span class="token punctuation">-</span>g1a<span class="token punctuation">-</span>review<span class="token punctuation">-</span>running<span class="token punctuation">-</span>gpt<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>120b<span class="token punctuation">-</span>without<span class="token punctuation">-</span>a<span class="token punctuation">-</span>discrete<span class="token punctuation">-</span>gpu
+<span class="token key atrule">author</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"[[StorageReview.com]]"</span>
+<span class="token key atrule">published</span><span class="token punctuation">:</span> <span class="token datetime number">2025-08-08</span>
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-11-12</span>
+<span class="token key atrule">description</span><span class="token punctuation">:</span> HP Z2 Mini G1a delivers big AI performance in a compact form<span class="token punctuation">,</span> running local LLMs with 96GB shared VRAM and Ryzen AI Max+ Pro 395.
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Cougar<span class="token punctuation">-</span>Ears</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre><div class="markdown-preview-sizer markdown-preview-section"><div class="header"><h1 class="page-title heading inline-title" id="HP_Z2_Mini_G1a_Review_Running_GPT-OSS_120B_Without_a_Discrete_GPU_0">HP Z2 Mini G1a Review: Running GPT-OSS 120B Without a Discrete GPU</h1><div class="data-bar"></div></div><div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div><div class="el-p"><p dir="auto"><iframe class="external-embed mod-receives-events is-unresolved" sandbox="allow-forms allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts allow-modals allow-popups" allow="fullscreen" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://releases.obsidian.md/youtube?v=wCBLMXgk3No" loading="lazy" target="_self"></iframe></p></div><div class="el-h2"><h2 data-heading="[HP Z2 Mini G1a Review Running GPT-OSS 120B Without a Discrete GPU](https://www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu)" dir="auto" class="heading" id="[HP_Z2_Mini_G1a_Review_Running_GPT-OSS_120B_Without_a_Discrete_GPU](https//www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><a data-tooltip-position="top" aria-label="https://www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu" target="_self">HP Z2 Mini G1a Review Running GPT-OSS 120B Without a Discrete GPU</a></h2></div><div class="el-h2"><h2 data-heading="[GLM 4.5-Air-106B and Qwen3-235B on AMD Strix Halo AI Ryzen MAX+ 395  (HP Z2 G1a Mini Workstation)](GLM%204.5-Air-106B%20and%20Qwen3-235B%20on%20AMD%20Strix%20Halo%20AI%20Ryzen%20MAX+%20395%20%20(HP%20Z2%20G1a%20Mini%20Workstation).md)" dir="auto" class="heading" id="[GLM_4.5-Air-106B_and_Qwen3-235B_on_AMD_Strix_Halo_AI_Ryzen_MAX+_395_(HP_Z2_G1a_Mini_Workstation)](GLM%204.5-Air-106B%20and%20Qwen3-235B%20on%20AMD%20Strix%20Halo%20AI%20Ryzen%20MAX+%20395%20%20(HP%20Z2%20G1a%20Mini%20Workstation).md)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><a class="internal-link" data-href="GLM 4.5-Air-106B and Qwen3-235B on AMD Strix Halo AI Ryzen MAX+ 395  (HP Z2 G1a Mini Workstation).md" href="cougar-ears/glm-4.5-air-106b-and-qwen3-235b-on-amd-strix-halo-ai-ryzen-max+-395-(hp-z2-g1a-mini-workstation).html" target="_self" rel="noopener nofollow">GLM 4.5-Air-106B and Qwen3-235B on AMD Strix Halo AI Ryzen MAX+ 395  (HP Z2 G1a Mini Workstation)</a></h2></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://www.storagereview.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/" target="_self"><img alt="StorageReview.com" src="https://www.storagereview.com/wp-content/uploads/2025/10/Storage-Review.png" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></a></p></div><div class="el-p"><p dir="auto">The HP Z2 Mini G1a Workstation marks a bold step forward in highly customizable, compact computing. Designed for professionals in fields like 3D modeling, AI development, and digital content creation, this powerhouse combines portability with precision. At the heart of this workstation is the AMD Ryzen AI Max PRO Series processor, which delivers accelerated performance for multitasking, rendering, and local LLMs.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Side Profile" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-04.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">At the core of the system lies AMD’s Ryzen AI MAX+ Pro 395, a cutting-edge processor unveiled in early 2025. The CPU clock speed boosts up to 5.1 GHz and has 16 cores, delivering strong compute performance. It is also paired with AMD Radeon 8060S integrated graphics. Moreover, like many AI products, the included neural processing unit provides an additional 50 TOPS for demanding AI workloads. Its Radeon 8060S integrated graphics make it a contender in the GPU-intensive workloads, as users can allocate up to 96GB of VRAM to it. This gives it a unique edge for leading local LLM inferencing workloads, as well as rendering and content creation.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a AMd Ryzen AI Max Pro" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-06.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">When users configure the HP Z2 Mini G1a, this system scales differently from other systems. The CPU and GPU scale together. For example, the base configuration includes the AMD Ryzen AI Max Pro 380 with Radeon 8040S graphics and 32GB of shared memory. When you go with more memory, such as moving to 128GB, it changes the CPU and GPU as well. That change moves it to the Ryzen AI Max+ Pro 395 with Radeon 8060S graphics, with 128GB of shared memory.</p></div><div class="el-p"><p dir="auto">The system covered in this review is the Z2 Mini G1a with the Ryzen AI Max+ Pro 395 chipset, offering a 16-core CPU paired with the Radeon 8060S graphics, both sharing 128GB of DDR5. While our system comes with dual 1TB SSDs and a list price of $4,781, its effective street price is much lower. Pricing was a considerable concern around the <a data-tooltip-position="top" aria-label="https://www.storagereview.com/review/hp-zbook-ultra-g1a-14-review-all-the-ai-hype-not-enough-payoff" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/review/hp-zbook-ultra-g1a-14-review-all-the-ai-hype-not-enough-payoff" target="_self">HP ZBook Ultra G1a</a> we reviewed earlier this year, but thankfully, pricing and performance have substantially improved. <a data-tooltip-position="top" aria-label="https://www.bhphotovideo.com/c/product/1907723-REG/hp_c3xe1ut_aba_z2_mini_g1a_desktop.html" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://www.bhphotovideo.com/c/product/1907723-REG/hp_c3xe1ut_aba_z2_mini_g1a_desktop.html" target="_self">Currently, B&amp;H sells the top-spec Z2 Mini G1a with a 2TB SSD for just $3,342.65</a>.</p></div><div class="el-h3"><h3 data-heading="HP ZCentral Remote Boost" dir="auto" class="heading" id="HP_ZCentral_Remote_Boost_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>HP ZCentral Remote Boost</h3></div><div class="el-p"><p dir="auto">One of the more interesting features HP offers in its professional workstation lines is HP ZCentral Remote Boost. HP ZCentral Remote Boost is the company’s remote connection software (formerly known as HP Remote Graphics Software or RGS). It has been designed for use with physical workstations rather than virtual machines (VMs). In essence, Remote Boost connects an endpoint device to a Z workstation in your office or home, allowing users to access the system for graphics-intensive work via the endpoint device.</p></div><div class="el-p"><p dir="auto">Multiple users can then leverage one workstation, regardless of where it might reside: in a data center, data closet, or even at the work desk. If the receiver can contact the sender system over the network, the compute resources can be fully remote, even in a WAN environment when VPNs are present.</p></div><div class="el-p"><p dir="auto">Overall, we had an excellent end-user experience with HP Remote Boost. We encourage reading the white paper<a data-tooltip-position="top" aria-label="https://www.storagereview.com/review/hp-zcentral-remote-boost" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/review/hp-zcentral-remote-boost" target="_self">, How it Works: HP ZCentral Remote Boost</a>, for a detailed examination of this useful technology, which is now more relevant than ever.</p></div><div class="el-h3"><h3 data-heading="HP Z2 Mini G1a Specifications" dir="auto" class="heading" id="HP_Z2_Mini_G1a_Specifications_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>HP Z2 Mini G1a Specifications</h3></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Category</th>
+<th dir="ltr">Specifications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">Available Operating Systems</td>
+<td dir="ltr">- Windows 11 Pro - Windows 11 Home – HP recommends Windows 11 Pro for business - Linux Ready - Ubuntu 24.04 LTS</td>
+</tr>
+<tr>
+<td dir="ltr">Processor Family</td>
+<td dir="ltr">AMD Ryzen AI Max PRO processor</td>
+</tr>
+<tr>
+<td dir="ltr">Available Processors</td>
+<td dir="ltr">- AMD Ryzen AI Max+ PRO 395 (up to 5.1 GHz max boost clock, 64 MB L3 cache, 16 cores, 32 threads) with AMD Radeon 8060S Graphics and AMD Ryzen AI - AMD Ryzen AI Max PRO 390 (up to 5.0 GHz max boost clock, 64 MB L3 cache, 12 cores, 24 threads) with AMD Radeon 8050S Graphics and AMD Ryzen AI - AMD Ryzen AI Max PRO 385 (up to 5.0 GHz max boost clock, 32 MB L3 cache, 8 cores, 16 threads) with AMD Radeon 8050S Graphics and AMD Ryzen AI - AMD Ryzen AI Max PRO 380 (up to 4.9 GHz max boost clock, 16 MB L3 cache, 6 cores, 12 threads) with AMD Radeon 8040S Graphics and AMD Ryzen AI</td>
+</tr>
+<tr>
+<td dir="ltr">Neural Processing Unit</td>
+<td dir="ltr">AMD Ryzen AI (50 TOPS)</td>
+</tr>
+<tr>
+<td dir="ltr">Product Colour</td>
+<td dir="ltr">Jet black</td>
+</tr>
+<tr>
+<td dir="ltr">Form Factor</td>
+<td dir="ltr">Mini</td>
+</tr>
+<tr>
+<td dir="ltr">Maximum Memory</td>
+<td dir="ltr">128 GB LPDDR5X-8533 MT/s ECC, transfer rates up to 8000 MT/s</td>
+</tr>
+<tr>
+<td dir="ltr">Internal Storage</td>
+<td dir="ltr">- 512GB up to 4TB HP Z Turbo Drive PCIe NVMe M.2 SSD - 512GB up to 4TB HP Z Turbo Drive PCIe NVMe Opal 2 M.2 SSD - 256GB up to 1TB PCIe NVMe Value M.2 SSD - 512GB up to 2TB PCIe NVMe FIPS 140-2 SED SSD - 512GB up to 2TB Citadel PCIe NVMe A-DEV FIPS 140-2</td>
+</tr>
+<tr>
+<td dir="ltr">Available Graphics</td>
+<td dir="ltr">- AMD Radeon 8060S Graphics - AMD Radeon 8050S Graphics - AMD Radeon 8040S Graphics</td>
+</tr>
+<tr>
+<td dir="ltr">Audio</td>
+<td dir="ltr">Integrated mono speaker, Realtek ALC3205-VA2-CG, 2.0W internal mono speaker</td>
+</tr>
+<tr>
+<td dir="ltr">Expansion Slots</td>
+<td dir="ltr">2 M.2 2280 PCIe 4×4; 1 M.2 2230 for WLAN</td>
+</tr>
+<tr>
+<td dir="ltr">Ports and Connectors</td>
+<td dir="ltr">- <strong>Side:</strong> 1 USB Type-C 10Gbps (USB Power Delivery, DisplayPort 2.1); 1 headphone/microphone combo; 1 USB Type-A 10Gbps (1 charging) - <strong>Rear:</strong> 2 USB Type-A 10Gbps; 1 RJ-45; 2 Thunderbolt 4 with USB Type-C 40Gbps (USB Power Delivery, DisplayPort 2.1); 2 USB Type-A 480Mbps; 2 Mini DisplayPort 2.1 - <strong>Optional Ports:</strong> 	- Flex IO top – dual USB Type-A 5Gbps, dual USB Type-C 10Gbps, 1 GbE LAN, 2.5 GbE LAN, 10GbE LAN, USB-based serial port, 1GbE Fiber LC NIC. 	- Flex IO bottom – 1 GbE LAN, 2.5 GbE LAN, serial port, external power button, remote manageability kit.</td>
+</tr>
+<tr>
+<td dir="ltr">Keyboard Options</td>
+<td dir="ltr">HP USB Business Slim SmartCard CCID Keyboard; HP 125 Black Wired Keyboard; HP 320K Wired Keyboard</td>
+</tr>
+<tr>
+<td dir="ltr">Mouse Options</td>
+<td dir="ltr">HP Wired Desktop 128 Laser Mouse; HP Wired 320M Mouse; HP 125 Wired Mouse</td>
+</tr>
+<tr>
+<td dir="ltr">Communications</td>
+<td dir="ltr">LAN: Realtek RTL8125BPH-CG 2.5 GbE; WLAN: MediaTek Wi-Fi 7 MT7925 (2×2) and Bluetooth 5.4</td>
+</tr>
+<tr>
+<td dir="ltr">Software</td>
+<td dir="ltr">HP UEFI BIOS Certification 2.7B; HP PC Hardware Diagnostics Windows; HP Image Assistant; HP Manageability Integration Kit 10; Performance Advisor 3.0</td>
+</tr>
+<tr>
+<td dir="ltr">Security Management</td>
+<td dir="ltr">HP Secure Erase; HP Sure Click; HP BIOSphere Gen6; Sure Recover Gen4; HP Sure Admin; Hood Sensor Optional Kit; HP Client Security Manager Gen6; HP Sure Start Gen7; HP Sure Sense Gen2; HP Sure Run Gen5; Microsoft Pluton; HP Wolf Pro Security Edition</td>
+</tr>
+<tr>
+<td dir="ltr">Management Features</td>
+<td dir="ltr">High-Performance Mode, Quiet Mode, Rack Mode, Performance Mode</td>
+</tr>
+<tr>
+<td dir="ltr">Power</td>
+<td dir="ltr">300 W internal power adapter, up to 92% efficiency, active PFC</td>
+</tr>
+<tr>
+<td dir="ltr">Dimensions</td>
+<td dir="ltr">3.4 x 6.6 x 7.9 in; 8.55 x 16.8 x 20 cm (standard desktop orientation)</td>
+</tr>
+<tr>
+<td dir="ltr">Weight</td>
+<td dir="ltr">Starting at 5.07 lb (2.3 kg); Package starting at 9 lb (4.1 kg)</td>
+</tr>
+<tr>
+<td dir="ltr">Ecolabels</td>
+<td dir="ltr">IT ECO Declaration; SEPA; Taiwan Green Mark; Japan PC Green Label; FEMP; EPEAT Gold with Climate+; Korea MEPS</td>
+</tr>
+<tr>
+<td dir="ltr">Energy Certification</td>
+<td dir="ltr">ENERGY STAR certified</td>
+</tr>
+<tr>
+<td dir="ltr">Sustainable Impact</td>
+<td dir="ltr">Bulk packaging available; 10% ITE-derived closed loop plastic; Product Carbon Footprint; Contains at least 65% post-consumer recycled plastic; Contains at least 20% post-industrial recycled steel; QR code-enabled product portal (Dec 2025); New Energy Consumption dashboard</td>
+</tr>
+<tr>
+<td dir="ltr">Display Support</td>
+<td dir="ltr">Supports four simultaneous displays. Each Mini DisplayPort can drive one display; each Thunderbolt port can drive two displays</td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Design and Build" dir="auto" class="heading" id="Design_and_Build_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Design and Build</h3></div><div class="el-p"><p dir="auto">The front of the HP Z2 Mini G1a offers a slick design with a straightforward layout. The front bezel has a cool lattice framework, with the HP logo on one side and a power button on the other. The lattice is functional, allowing air to move freely through the case without being impeded.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Front" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-05.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">One side of the Z2 Mini G1a also offers a few ports, including a USB-C 10Gbps port with 15W output, as well as a USB-A port with 10GBps connectivity, and a headphone/microphone jack.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Side" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-03.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">There is a wide assortment of ports on the back of this system. It includes two Mini DP 2.1, two USB 2.0, two USB 3.0 10 Gb/s, two Thunderbolt 4 USB-C 40 Gb/s, a 2.5 GbE port, and, of course, the power supply connection and a cable lock. The power supply is fully integrated, which is a nice touch, eliminating the need for a huge AC power brick. HP also supports a feature allowing greater customization, two Flex IO slots that users can change to their liking. The top slot offers a choice between a dual-port USB-A 5Gb/s combo or a 1GbE NIC with a serial port. The bottom slot can be configured with another 1GbE NIC via a serial port, an additional external power button, as well as an HP Remote System Controller for out-of-band (OOB) management.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Rear Ports" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-02.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">To dig into the HP Z2 Mini G1a, the top cover slides off conveniently using a finger-latch on the backside.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Service" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-01.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">A large fan + heatsink combo covers most of the motherboard, cooling the AMD Ryzen CPU/GPU combo. While the system RAM is soldered on and can’t be serviced, the Z2 Mini G1a does offer two PCIe Gen4 M.2 slots. These are accessed by removing two small screws that connect the fan assembly to the heatsink and lifting the fan assembly.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Inside" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-08.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">During heavy use, some fan noise became noticeable, though not as prominent or aggressive as what you might find in a larger workstation.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a SSDs" src="https://www.storagereview.com/wp-content/uploads/2025/08/StorageReview-HP-Z2-Mini-G1a-07.jpg" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-h2"><h2 data-heading="HP Z2 Mini G1a Performance Testing" dir="auto" class="heading" id="HP_Z2_Mini_G1a_Performance_Testing_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>HP Z2 Mini G1a Performance Testing</h2></div><div class="el-p"><p dir="auto">For this review, we compare the HP Z2 Mini G1a to the <a data-tooltip-position="top" aria-label="https://www.storagereview.com/review/hp-zbook-ultra-g1a-14-review-all-the-ai-hype-not-enough-payoff" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/review/hp-zbook-ultra-g1a-14-review-all-the-ai-hype-not-enough-payoff" target="_self">HP ZBook Ultra G1a 14″ laptop</a> that we previously wrote about. Both the workstation and the laptop contain identical components, allowing us to see how well the desktop form factor compares with a larger power envelope and increased cooling.</p></div><div class="el-h3"><h3 data-heading="UL Procyon: AI Computer Vision" dir="auto" class="heading" id="UL_Procyon_AI_Computer_Vision_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>UL Procyon: AI Computer Vision</h3></div><div class="el-p"><p dir="auto">The Procyon AI Computer Vision Benchmark provides detailed insights into how AI inference engines perform at a professional level. By incorporating engines from multiple vendors, it delivers performance scores that accurately reflect a device’s capabilities. The benchmark evaluates state-of-the-art neural network models by comparing their AI acceleration performance across different hardware types—including CPU, GPU, and NPU—allowing users to assess relative efficiency across a range of workload sizes and conditions.</p></div><div class="el-p"><p dir="auto">To reflect real-world AI workloads, the benchmark uses six diverse neural network models, each chosen for its relevance to modern computer vision tasks. MobileNet V3 is a compact, mobile-focused model designed for subject identification in images, while Inception V4 performs the same task using a deeper and more complex architecture.</p></div><div class="el-p"><p dir="auto">YOLO V3 (You Only Look Once) specializes in object detection by estimating object probabilities in real-time. DeepLab V3, built on MobileNet V2, focuses on semantic image segmentation and pixel clustering. Real-ESRGAN, the most computationally demanding test, upscales images from 250×250 to 1,000×1,000 resolution. Finally, ResNet 50 is a robust classification model that enables more effective training of deep neural networks.</p></div><div class="el-p"><p dir="auto">The HP Z2 Mini G1a slightly outpaces the HP ZBook Ultra G1a 14″ in the CPU test. The workstation scored 227 overall, while the laptop scored 186 overall. There was a noticeably faster time from the workstation, proportional throughout each category. Shown best from the REAL-ESRGAN test, resulting in 1,892.10 ms from the workstation and 2,138.97 ms from the mobile platform. Though the difference in speed is evident throughout, with the scores favoring the workstation, both end up with excellent scores.</p></div><div class="el-p"><p dir="auto">During the GPU test, the laptop comes out on top with an overall score of 583 versus the workstation’s 528. The Radeon 8060S integrated graphics show high-performance metrics on both systems. However, on the notebook, results were slightly faster in most categories. The only exception is MobileNet V3, where the workstation scored 0.42 ms compared to 0.46 ms from the laptop. However, the opposite is true throughout the rest of the results here. Looking at the largest workload, REAL-ESRGAN, for example, the workstation had a time of 211.76 ms, roughly 11 ms behind the notebook at 200.40 ms.</p></div><div class="el-p"><p dir="auto">Both the HP Z2 Mini G1a and the HP ZBook Ultra G1a 14″ ran well in the NPU test. Looking at the overall scores of 1,761 from the workstation and 1,773 from the notebook, it appears that the ZBook mobile platform is better here. However, the difference in almost every category, with the exceptions of DeepLab V3 and REAL-ESRGAN, is only hundredths of milliseconds. Both systems show solid performance for AI inferencing, indicating that they are comparable in performance.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table><tbody><tr><td dir="ltr"><strong>UL Procyon: AI Computer Vision Inference (Lower is better)</strong></td><td dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></td><td dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>CPU Times</i></b></td><td width="624" colspan="2" dir="auto"></td></tr><tr><td dir="ltr">AI Computer Vision Overall Score (higher is better)</td><td dir="auto">227</td><td dir="auto">186</td></tr><tr><td dir="ltr">MobileNet V3</td><td dir="ltr">0.75 ms</td><td dir="ltr">1.09 ms</td></tr><tr><td dir="ltr">ResNet 50</td><td dir="ltr">5.99 ms</td><td dir="ltr">6.84 ms</td></tr><tr><td dir="ltr">Inception V4</td><td dir="ltr">17.12 ms</td><td dir="ltr">19.80 ms</td></tr><tr><td dir="ltr">DeepLab V3</td><td dir="ltr">21.20 ms</td><td dir="ltr">28.27 ms</td></tr><tr><td dir="ltr">YOLO V3</td><td dir="ltr">36.58 ms</td><td dir="ltr">41.64 ms</td></tr><tr><td dir="ltr">REAL-ESRGAN</td><td dir="ltr">1,892.10 ms</td><td dir="ltr">2,138.97 ms</td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>GPU Times</i></b></td><td width="624" colspan="2" dir="auto"></td></tr><tr><td dir="ltr">AI Computer Vision Overall Score (higher is better)</td><td dir="auto">528</td><td dir="auto">583</td></tr><tr><td dir="ltr">MobileNet V3</td><td dir="ltr">0.42 ms</td><td dir="ltr">0.46 ms</td></tr><tr><td dir="ltr">ResNet 50</td><td dir="ltr">3.85 ms</td><td dir="ltr">3.27 ms</td></tr><tr><td dir="ltr">Inception V4</td><td dir="ltr">15.15 ms</td><td dir="ltr">11.62 ms</td></tr><tr><td dir="ltr">DeepLab V3</td><td dir="ltr">10.98 ms</td><td dir="ltr">10.72 ms</td></tr><tr><td dir="ltr">YOLO V3</td><td dir="ltr">12.64 ms</td><td dir="ltr">10.57 ms</td></tr><tr><td dir="ltr">REAL-ESRGAN</td><td dir="ltr">211.76 ms</td><td dir="ltr">200.40 ms</td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>NPU Times</i></b></td><td width="624" colspan="2" dir="auto"></td></tr><tr><td dir="ltr">AI Computer Vision Overall Score (higher is better)</td><td dir="auto">1,761</td><td dir="auto">1,773</td></tr><tr><td dir="ltr">MobileNet V3</td><td dir="ltr">0.27 ms</td><td dir="ltr">0.27 ms</td></tr><tr><td dir="ltr">ResNet 50</td><td dir="ltr">0.83 ms</td><td dir="ltr">0.82 ms</td></tr><tr><td dir="ltr">Inception V4</td><td dir="ltr">1.72 ms</td><td dir="ltr">1.71 ms</td></tr><tr><td dir="ltr">DeepLab V3</td><td dir="ltr">4.31 ms</td><td dir="ltr">4.22 ms</td></tr><tr><td dir="ltr">YOLO V3</td><td dir="ltr">3.17 ms</td><td dir="ltr">3.15 ms</td></tr><tr><td dir="ltr">REAL-ESRGAN</td><td dir="ltr">100.05 ms</td><td dir="ltr">100.83 ms</td></tr></tbody></table></div><div class="el-h3"><h3 data-heading="UL Procyon: AI Text Generation" dir="auto" class="heading" id="UL_Procyon_AI_Text_Generation_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>UL Procyon: AI Text Generation</h3></div><div class="el-p"><p dir="auto">The <a data-tooltip-position="top" aria-label="https://www.storagereview.com/procyon-ai-text-and-image-generation-benchmark" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/procyon-ai-text-and-image-generation-benchmark" target="_self">Procyon AI Text Generation Benchmark</a> streamlines AI LLM performance testing by providing a concise and consistent evaluation method. It allows for repeated testing across multiple LLM models while minimizing the complexity of large model sizes and variable factors. Developed with AI hardware leaders, it optimizes the use of local AI accelerators for more reliable and efficient performance assessments. The results measured below were tested using TensorRT.</p></div><div class="el-p"><p dir="auto">After completing AI text generation tests, the results show a consistent pattern where the HP Z2 Mini G1a performs slightly ahead of the HP ZBook Ultra G1a, though the differences remain modest. In the Phi benchmark, for instance, the Z2 Mini achieved an overall score of 965 compared to the ZBook’s 922. The time to first token was nearly identical, measured at 1.898 seconds for the Z2 Mini and 1.956 seconds for the ZBook. Output tokens per second were similarly close, at 68.967 and 64.986, respectively. These figures suggest that while the Z2 Mini processes tasks marginally faster, both systems offer comparable responsiveness during inference.</p></div><div class="el-p"><p dir="auto">This trend continues in the Mistral and Llama3 tests. The Z2 Mini scored 850 and 766, while the ZBook posted 829 and 756. Output speed and token latency followed suit with similarly close margins. These consistent results indicate that both systems deliver similar performance levels, particularly when running mid-sized models under real-world conditions.</p></div><div class="el-p"><p dir="auto">The Llama2 test produced the closest set of results overall. The Z2 Mini recorded a score of 936 with a time to first token of 3.813 seconds, while the ZBook achieved 929 with a time of 3.860 seconds. The small gap between these results reinforces how closely matched the systems are when handling modern AI workloads.</p></div><div class="el-p"><p dir="auto">Overall, the Z2 Mini consistently places slightly ahead in each test, but the data shows that both systems perform nearly on par when running LLMs using TensorRT. These differences may be evident in synthetic benchmarks, but are unlikely to result in meaningful performance gaps in most usage scenarios.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>UL Procyon: AI Text Generation</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">Phi Overall Score</td>
+<td dir="auto">965</td>
+<td dir="auto">922</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Phi Output Time To First Token</td>
+<td dir="ltr">1.898 seconds</td>
+<td dir="ltr">1.956 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Phi Output Tokens Per Second</td>
+<td dir="ltr">68.967 tokens/s</td>
+<td dir="ltr">64.986 tokens/s</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Phi Overall Duration</td>
+<td dir="ltr">52.666 seconds</td>
+<td dir="ltr">55.501 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Mistral Overall Score</td>
+<td dir="auto">850</td>
+<td dir="auto">829</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Mistral Output Time To First Token</td>
+<td dir="ltr">2.734 seconds</td>
+<td dir="ltr">2.783 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Mistral Output Tokens Per Second</td>
+<td dir="ltr">43.358 tokens/s</td>
+<td dir="ltr">41.992 tokens/s</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Mistral Overall Duration</td>
+<td dir="ltr">81.716 seconds</td>
+<td dir="ltr">84.065 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama3 Overall Score</td>
+<td dir="auto">766</td>
+<td dir="auto">756</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama3 Output Time To First Token</td>
+<td dir="ltr">2.545 seconds</td>
+<td dir="ltr">2.578 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama3 Output Tokens Per Second</td>
+<td dir="ltr">36.752 tokens/s</td>
+<td dir="ltr">36.243 tokens/s</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama3 Overall Duration</td>
+<td dir="ltr">91.987 seconds</td>
+<td dir="ltr">93.200 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama2 Overall Score</td>
+<td dir="auto">936</td>
+<td dir="auto">929</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama2 Output Time To First Token</td>
+<td dir="ltr">3.813 seconds</td>
+<td dir="ltr">3.860 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama2 Output Tokens Per Second</td>
+<td dir="ltr">24.685 tokens/s</td>
+<td dir="ltr">24.619 tokens/s</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Llama2 Overall Duration</td>
+<td dir="ltr">136.077 seconds</td>
+<td dir="ltr">136.720 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="UL Procyon: AI Image Generation" dir="auto" class="heading" id="UL_Procyon_AI_Image_Generation_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>UL Procyon: AI Image Generation</h3></div><div class="el-p"><p dir="auto">The <a data-tooltip-position="top" aria-label="https://www.storagereview.com/procyon-ai-text-and-image-generation-benchmark" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/procyon-ai-text-and-image-generation-benchmark" target="_self">Procyon AI Image Generation Benchmark</a> provides a consistent and accurate method for measuring AI inference performance across various hardware, ranging from low-power NPUs to high-end GPUs. It includes three tests: Stable Diffusion XL (FP16) for high-end GPUs, Stable Diffusion 1.5 (FP16) for moderately powerful GPUs, and Stable Diffusion 1.5 (INT8) for low-power devices. The benchmark uses the optimal inference engine for each system, ensuring fair and comparable results.</p></div><div class="el-p"><p dir="auto">To simulate real-world usage, the benchmark generates images from a standardized set of text prompts, creating a consistent text-to-image AI workload across all devices. Each test provides key performance metrics, including an overall score, total generation time, and image generation speed, enabling simple and effective comparison between models and hardware configurations.</p></div><div class="el-p"><p dir="auto">Both the HP Z2 Mini G1a and the HP ZBook Ultra G1a were able to run two of the three image generation tests included in the Procyon AI Image Generation Benchmark. Specifically, both systems completed Stable Diffusion 1.5 using FP16 precision and the more demanding Stable Diffusion XL FP16 test. The INT8 version of Stable Diffusion 1.5 was not supported on either configuration.</p></div><div class="el-p"><p dir="auto">In the Stable Diffusion 1.5 FP16 test, the Z2 Mini completed the workload with an overall score of 725, a total generation time of 137.815 seconds, and an image generation speed of 8.613 seconds per image. The ZBook produced comparable results, with an overall score of 648, a total time of 154.203 seconds, and 9.638 seconds per image. These figures suggest that the Z2 Mini maintains a modest lead in processing efficiency, even though both systems share the same Ryzen AI Max+ PRO 395 processor and Radeon 8060S GPU.</p></div><div class="el-p"><p dir="auto">A similar pattern appears in the Stable Diffusion XL FP16 test. The Z2 Mini achieved an overall score of 570 and completed the benchmark in 1,052.468 seconds, generating images at 65.779 seconds per image. The ZBook, in comparison, finished with a score of 451 and a total time of 1,329.592 seconds, with an image speed of 83.100 seconds per image. While both systems are capable of handling these larger models, the Z2 Mini consistently completes the tasks more quickly, reflecting slightly more optimized performance under identical hardware constraints.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>UL Procyon: AI Image Generation</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">Stable Diffusion 1.5 (FP16) – Overall Score</td>
+<td dir="auto">725</td>
+<td dir="auto">648</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion 1.5 (FP16) – Overall Time</td>
+<td dir="ltr">137.815 seconds</td>
+<td dir="ltr">154.203 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion 1.5 (FP16) – Image Generation Speed</td>
+<td dir="ltr">8.613 s/image</td>
+<td dir="ltr">9.638 s/image</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion 1.5 (INT8) – Overall Score</td>
+<td dir="ltr">N/A</td>
+<td dir="ltr">N/A</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion 1.5 (INT8) – Overall Time</td>
+<td dir="ltr">N/A</td>
+<td dir="ltr">N/A</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion 1.5 (INT8) – Image Generation Speed</td>
+<td dir="ltr">N/A</td>
+<td dir="ltr">N/A</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion XL (FP16) – Overall Score</td>
+<td dir="auto">570</td>
+<td dir="auto">451</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion XL (FP16) – Overall Time</td>
+<td dir="ltr">1,052.468 seconds</td>
+<td dir="ltr">1,329.592 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr">Stable Diffusion XL (FP16) – Image Generation Speed</td>
+<td dir="ltr">65.779 s/image</td>
+<td dir="ltr">83.100 s/image</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="SPECworkstation 4" dir="auto" class="heading" id="SPECworkstation_4_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>SPECworkstation 4</h3></div><div class="el-p"><p dir="auto">The SPECworkstation 4.0 benchmark is a comprehensive tool for evaluating all key aspects of workstation performance.It offers a real-world measure of CPU, graphics, accelerator, and disk performance, ensuring professionals have the data to make informed decisions about their hardware investments.The benchmark includes a dedicated set of tests focusing on AI and ML workloads, including data science tasks and ONNX runtime-based inference tests, reflecting the growing importance of AI/ML in workstation environments.It encompasses seven industry verticals and four hardware subsystems, providing a detailed and relevant measure of the performance of today’s workstations.</p></div><div class="el-p"><p dir="auto">Results show that the Z2 Mini generally scores higher across most categories, reflecting a slight performance advantage in sustained workloads. In the Energy test, the Z2 Mini scored 2.50, compared to 2.20 for the ZBook. Financial Services showed a wider gap, with scores of 2.35 for the workstation and 1.60 for the laptop. Life Sciences followed a similar trend, with the Z2 Mini at 2.60 and the ZBook at 2.20. Media and Entertainment returned 2.22 and 1.90, while Product Design saw scores of 2.00 for the workstation and 1.74 for the laptop.</p></div><div class="el-p"><p dir="auto">The only instance where the ZBook edged ahead was in Productivity and Development, where it recorded a score of 1.03 compared to the Z2 Mini’s 1.00. While these differences are not dramatic, they suggest that the Z2 Mini may deliver slightly more consistent throughput in workstation-class applications, even though both systems share the same processor and GPU.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>SPECworkstation 4.0.0 (Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Energy</strong></td>
+<td dir="auto">2.50</td>
+<td dir="auto">2.20</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Financial Services</strong></td>
+<td dir="auto">2.35</td>
+<td dir="auto">1.60</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Life Sciences</strong></td>
+<td dir="auto">2.60</td>
+<td dir="auto">2.20</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Media &amp; Entertainment</strong></td>
+<td dir="auto">2.22</td>
+<td dir="auto">1.90</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Product Design</strong></td>
+<td dir="auto">2.00</td>
+<td dir="auto">1.74</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Productivity &amp; Development</strong></td>
+<td dir="auto">1.00</td>
+<td dir="auto">1.03</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Luxmark" dir="auto" class="heading" id="Luxmark_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Luxmark</h3></div><div class="el-p"><p dir="auto">Luxmark is a GPU benchmark that utilizes LuxRender, an open-source ray-tracing renderer, to evaluate a system’s performance in handling highly detailed 3D scenes. This benchmark is relevant for assessing the graphical rendering capabilities of servers and workstations, especially for visual effects and architectural visualization applications, where accurate light simulation is crucial.</p></div><div class="el-p"><p dir="auto">Both the HP Z2 Mini G1a and the HP ZBook Ultra G1a performed well in this test, reflecting the strength of the Ryzen AI Max+ PRO 395 paired with the Radeon 8060S. In the Hallbench scene, the Z2 Mini achieved a score of 8,477, slightly ahead of the ZBook’s 7,833. Similarly, in the Food scene, the scores were 3,943 for the workstation and 3,915 for the laptop. These results show only minimal variance, suggesting both systems are well-suited for light to moderate 3D rendering workloads.</p></div><div class="el-p"><p dir="auto">Notably, both devices benefit from flexible memory allocation, allowing dynamic sharing of RAM between CPU and GPU tasks. This capability contributes to their ability to handle rendering tasks efficiently, even in compact form factors typically not associated with intensive graphics performance.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Luxmark (Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Hallbench</strong></td>
+<td dir="auto">8,477</td>
+<td dir="auto">7,833</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Food</strong></td>
+<td dir="auto">3,943</td>
+<td dir="auto">3,915</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="7-Zip Compression" dir="auto" class="heading" id="7-Zip_Compression_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>7-Zip Compression</h3></div><div class="el-p"><p dir="auto">The 7-Zip Compression Benchmark evaluates CPU performance during compression and decompression tasks, measuring ratings in GIPS (Giga Instructions Per Second) and CPU usage. Higher GIPS and efficient CPU usage indicate superior performance.</p></div><div class="el-p"><p dir="auto">Focusing on the resulting ratings, both the HP Z2 Mini G1a and the HP ZBook Ultra G1a deliver strong, closely matched performance. During compression, the Z2 Mini achieved a resulting rating of 139.298 GIPS, slightly behind the ZBook’s 139.617 GIPS. In decompression, however, the Z2 Mini posted a higher resulting rating of 163.969 GIPS, compared to 174.046 GIPS on the ZBook.</p></div><div class="el-p"><p dir="auto">Taking both workloads into account, the total resulting rating was 151.634 GIPS for the Z2 Mini and 156.832 GIPS for the ZBook. These results indicate that while both systems are highly capable of managing compression-heavy workflows, the ZBook has a slight advantage in overall throughput, particularly during decompression phases.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table><tbody><tr><td dir="ltr"><strong>7-Zip Compression Benchmark (Higher is Better)</strong></td><td dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></td><td dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></td></tr><tr><td width="624" colspan="6" dir="ltr"><strong><em>Compressing</em></strong></td></tr><tr><td dir="ltr"><strong>Current CPU Usage</strong></td><td dir="auto">2,734%</td><td dir="auto">2,868%</td></tr><tr><td dir="ltr"><strong>Current Rating/Usage</strong></td><td dir="ltr">5.136 GIPS</td><td dir="ltr">4.883 GIPS</td></tr><tr><td dir="ltr"><strong>Current Rating</strong></td><td dir="ltr">140.405 GIPS</td><td dir="ltr">140.061 GIPS</td></tr><tr><td dir="ltr"><strong>Resulting CPU Usage</strong></td><td dir="auto">2,718%</td><td dir="auto">2,855%</td></tr><tr><td dir="ltr"><strong>Resulting Rating/Usage</strong></td><td dir="ltr">5.126 GIPS</td><td dir="ltr">4.890 GIPS</td></tr><tr><td dir="ltr"><strong>Resulting Rating</strong></td><td dir="ltr">139.298 GIPS</td><td dir="ltr">139.617 GIPS</td></tr><tr><td width="624" colspan="6" dir="ltr"><strong><em>Decompressing</em></strong></td></tr><tr><td dir="ltr"><strong>Current CPU Usage</strong></td><td dir="auto">2,343%</td><td dir="auto">2,904%</td></tr><tr><td dir="ltr"><strong>Current Rating/Usage</strong></td><td dir="ltr">6.805 GIPS</td><td dir="ltr">6.029 GIPS</td></tr><tr><td dir="ltr"><strong>Current Rating</strong></td><td dir="ltr">159.451 GIPS</td><td dir="ltr">175.104 GIPS</td></tr><tr><td dir="ltr"><strong>Resulting CPU Usage</strong></td><td dir="auto">2,414%</td><td dir="auto">2,887%</td></tr><tr><td dir="ltr"><strong>Resulting Rating/Usage</strong></td><td dir="ltr">6.793 GIPS</td><td dir="ltr">6.028 GIPS</td></tr><tr><td dir="ltr"><strong>Resulting Rating</strong></td><td dir="ltr">163.969 GIPS</td><td dir="ltr">174.046 GIPS</td></tr><tr><td width="624" colspan="6" dir="ltr"><strong><em>Total Rating</em></strong></td></tr><tr><td dir="ltr"><strong>Total CPU Usage</strong></td><td dir="auto">2,566%</td><td dir="auto">2,871%</td></tr><tr><td dir="ltr"><strong>Total Rating/Usage</strong></td><td dir="ltr">5.959 GIPS</td><td dir="ltr">5.459 GIPS</td></tr><tr><td dir="ltr"><strong>Total Rating</strong></td><td dir="ltr">151.634 GIPS</td><td dir="ltr">156.832 GIPS</td></tr></tbody></table></div><div class="el-h3"><h3 data-heading="Blackmagic RAW Speed Test" dir="auto" class="heading" id="Blackmagic_RAW_Speed_Test_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Blackmagic RAW Speed Test</h3></div><div class="el-p"><p dir="auto">The Blackmagic RAW Speed Test is a performance benchmarking tool that measures a system’s capabilities for handling video playback and editing using the Blackmagic RAW codec. It evaluates how well a system can decode and play back high-resolution video files, providing frame rates for both CPU- and GPU-based processing.</p></div><div class="el-p"><p dir="auto">In the 8K CPU test, the HP Z2 Mini G1a achieved 124 frames per second, outperforming the HP ZBook Ultra G1a, which scored 102 frames per second. This suggests a slight advantage for the workstation in raw CPU-based decoding tasks. However, the GPU-accelerated results using OpenCL show the opposite trend. The ZBook produced a slightly higher frame rate of 78 frames per second, compared to 74 frames per second on the Z2 Mini.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Blackmagic RAW Speed Test</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>8K CPU</strong></td>
+<td dir="ltr">124 FPS</td>
+<td dir="ltr">102 FPS</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>8K OPENCL</strong></td>
+<td dir="ltr">74 FPS</td>
+<td dir="ltr">78 FPS</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Blackmagic Disk Speed Test" dir="auto" class="heading" id="Blackmagic_Disk_Speed_Test_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Blackmagic Disk Speed Test</h3></div><div class="el-p"><p dir="auto">The Blackmagic Disk Speed Test evaluates storage performance by measuring read and write speeds, providing insights into a system’s ability to handle data-intensive tasks, such as video editing and large file transfers.</p></div><div class="el-p"><p dir="auto">The HP Z2 Mini G1a offers two PCIe Gen4 slots, with both being very easy to access and upgrade. The SSD performance may shift slightly depending on which part is sourced in your specific build.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Disk Speed Test (higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Read</strong></td>
+<td dir="ltr">4,549.3 MB/s</td>
+<td dir="ltr">4,547.3 MB/s</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Write</strong></td>
+<td dir="ltr">5,344 MB/s</td>
+<td dir="ltr">4,264.8 MB/s</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Blender Benchmark" dir="auto" class="heading" id="Blender_Benchmark_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Blender Benchmark</h3></div><div class="el-p"><p dir="auto">Blender is an open-source 3D modeling application. This benchmark was run using the Blender Benchmark utility. The score is measured in samples per minute, with higher values indicating better performance.</p></div><div class="el-p"><p dir="auto">The HP Z2 Mini G1a consistently outperformed the HP ZBook Ultra G1a in all three tested scenes. In the Monster project, the Z2 Mini reached 224.3 samples per minute, compared to 189.29 on the ZBook. The Junkshop scene followed with 149.5 and 129.42 samples per minute, respectively. Finally, in the Classroom scene, the Z2 Mini processed 116.3 samples per minute, while the ZBook completed 94.14 samples per minute.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Blender Benchmark CPU (Samples per minute, Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Monster</strong></td>
+<td dir="ltr">224.3 samples/m</td>
+<td dir="ltr">189.29 samples/m</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Junkshop</strong></td>
+<td dir="ltr">149.5 samples/m</td>
+<td dir="ltr">129.42 samples/m</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Classroom</strong></td>
+<td dir="ltr">116.3 samples/m</td>
+<td dir="ltr">94.14 samples/m</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-p"><p dir="auto">When shifting to GPU-based rendering using Blender’s OptiX engine, the results show a more balanced performance split between the two systems. In the Monster scene, the HP ZBook Ultra G1a rendered 661.50 samples per minute, slightly ahead of the Z2 Mini’s 616.1 samples per minute. This suggests a slight GPU-side advantage for the ZBook in this specific scene, despite identical Radeon 8060S graphics across both devices.</p></div><div class="el-p"><p dir="auto">In the Junkshop and Classroom tests, however, the Z2 Mini regains a narrow lead. It achieved 350.6 and 342.7 samples per minute, respectively, while the ZBook scored 341.92 and 333.26 in the same scenes. These differences are relatively minor and fall within expected variance, indicating both systems deliver closely matched GPU rendering performance under OptiX.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Blender Benchmark GPU (Samples per minute, Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Monster</strong></td>
+<td dir="ltr">745.55 samples/m</td>
+<td dir="ltr">661.50 samples/m</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Junkshop</strong></td>
+<td dir="ltr">366.54 samples/m</td>
+<td dir="ltr">341.92 samples/m</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Classroom</strong></td>
+<td dir="ltr">359.01 samples/m</td>
+<td dir="ltr">333.26 samples/m</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="y-cruncher" dir="auto" class="heading" id="y-cruncher_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>y-cruncher</h3></div><div class="el-p"><p dir="auto">y-cruncher is a multithreaded and scalable program that can compute Pi and other mathematical constants to trillions of digits. Since its launch in 2009, it has become a popular benchmarking and stress-testing application for overclockers and hardware enthusiasts.</p></div><div class="el-p"><p dir="auto">The HP Z2 Mini G1a metrics are consistent with the HP ZBook Ultra G1a 14″. The workstation offered a subtle edge across all the computational increments, starting with the 1-billion-size test measuring 12.965 seconds. In both the 2.5-billion and 5-billion tests, the gap widens by a couple of seconds. The results of 34.533 s for 2.5 billion and 75.021 seconds for 5 billion are solid. When the workstation completed the 10-billion-digits portion, it pulled out ahead with a 160.252-second completion time, which ended up 11 seconds faster than the ZBook, primarily due to slight power limitations on the laptop.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Y-Cruncher (Total Computation Time)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>1 Billion</strong></td>
+<td dir="ltr">12.965 seconds</td>
+<td dir="ltr">12.93 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>2.5 Billion</strong></td>
+<td dir="ltr">34.533 seconds</td>
+<td dir="ltr">34.91 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>5 Billion</strong></td>
+<td dir="ltr">75.021 seconds</td>
+<td dir="ltr">78.19 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>10 Billion</strong></td>
+<td dir="ltr">160.252 seconds</td>
+<td dir="ltr">171.72 seconds</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Geekbench 6" dir="auto" class="heading" id="Geekbench_6_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Geekbench 6</h3></div><div class="el-p"><p dir="auto">Geekbench 6 is a cross-platform benchmark that measures overall system performance.</p></div><div class="el-p"><p dir="auto">The results from the HP Z2 Mini G1a are no surprise here. CPU scores are nearly identical to the laptop at 2,862 Single-Core and 12,210 Multi-Core. For similar reasons as previously talked about, the GPU OpenCL score trended higher at 91,591. Provided scores suggest CPU-heavy tasks will not be an issue for this system. As for the GPU, Radeon 8060S integrated graphics are comparable to new graphics cards from around 2019, great for mini workstations.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Geekbench 6 (Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>CPU Single-Core</strong></td>
+<td dir="auto">2,862</td>
+<td dir="auto">2,825</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>CPU Multi-Core</strong></td>
+<td dir="auto">17,210</td>
+<td dir="auto">17,562</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>GPU OpenCL</strong></td>
+<td dir="auto">91,591</td>
+<td dir="auto">85,337</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Cinebench R23" dir="auto" class="heading" id="Cinebench_R23_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Cinebench R23</h3></div><div class="el-p"><p dir="auto">Cinebench R23 is a widely recognized benchmark for evaluating CPU performance in 3D rendering workloads. Using the Cinema 4D engine, it measures how well a processor handles both single-threaded and multithreaded tasks, offering insight into overall responsiveness and parallel processing capabilities.</p></div><div class="el-p"><p dir="auto">In the multi-core test, the HP Z2 Mini G1a posted a score of 37,156, significantly ahead of the HP ZBook Ultra G1a, which scored 29,112. This suggests the Z2 Mini is better equipped to sustain heavier, multithreaded rendering workloads, likely due to more favorable thermal conditions in its chassis.</p></div><div class="el-p"><p dir="auto">For single-core performance, the two systems delivered nearly identical results. The Z2 Mini scored 2,020 while the ZBook followed closely with 1,984. These figures indicate that both devices offer similar performance in lightly threaded tasks such as viewport interaction or basic modeling operations.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Cinebench R23 (Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Multi-Core</strong></td>
+<td dir="auto">37,156</td>
+<td dir="auto">29,112</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Single-Core</strong></td>
+<td dir="auto">2,020</td>
+<td dir="auto">1,984</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Cinebench 2024" dir="auto" class="heading" id="Cinebench_2024_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Cinebench 2024</h3></div><div class="el-p"><p dir="auto">Cinebench 2024 builds on the foundation of R23 by introducing GPU-based rendering tests alongside its continued focus on CPU performance. For this segment, we examine only the CPU scores, which provide updated insight into how well each system handles modern 3D rendering tasks.</p></div><div class="el-p"><p dir="auto">In the multi-core test, the HP Z2 Mini G1a scored 1,906, outperforming the HP ZBook Ultra G1a’s score of 1,579. This follows the same pattern seen in R23, where the Z2 Mini demonstrated more efficient multithreaded throughput, likely benefiting from better sustained performance under load.</p></div><div class="el-p"><p dir="auto">Single-core results were nearly identical. The Z2 Mini recorded 112 points, while the ZBook finished just one point behind at 111. This suggests similar performance for tasks that rely on individual threads, such as light editing or real-time application interactions.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr"><strong>Cinebench 2024 (Higher is better)</strong></th>
+<th dir="ltr"><strong>HP Z2 Mini G1a (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="ltr"><strong>HP ZBook Ultra G1a 14″ (Ryzen AI Max+ PRO 395 | Radeon 8060S)</strong></th>
+<th dir="auto"></th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr"><strong>Multi-Core</strong></td>
+<td dir="auto">1,906</td>
+<td dir="auto">1,579</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td dir="ltr"><strong>Single-Core</strong></td>
+<td dir="auto">112</td>
+<td dir="auto">111</td>
+<td dir="auto"></td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Ollama Gemma3 LLM Performance" dir="auto" class="heading" id="Ollama_Gemma3_LLM_Performance_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Ollama Gemma3 LLM Performance</h3></div><div class="el-p"><p dir="auto">To evaluate how the HP Z2 Mini G1a handles large language model (LLM) inference under real-world workloads, we used Ollama with a prompt designed to analyze the performance sections of this review. The models tested span from 1.5B up to 70B parameters, with Gemma3 variants used where applicable. This workload stresses both GPU and CPU resources, especially with long prompt sequences that challenge memory capacity, inference throughput, and compute stability.</p></div><div class="el-p"><p dir="auto">Smaller models such as Ollama 1.5B and 7B executed quickly, completing in 4.76 and 36.65 seconds, respectively. Prompt evaluation for both was efficient, with token processing rates of 716.99 tokens per second for the 1.5B model and 799.29 tokens per second for the 7B. However, the output evaluation rate drops as model size increases. At 1.5B, output tokens were generated at 112.18 tokens per second, while the 7B model completed at 36.86 tokens per second.</p></div><div class="el-p"><p dir="auto">As expected, performance scales down with increasing model size. The 14B model took nearly 65 seconds to complete, with generation speed slowing to 18.90 tokens per second. The 32B model saw a more significant slowdown, taking 94.29 seconds total and producing output at 9.38 tokens per second. The most computationally demanding test, the 70B model, required 164.73 seconds and generated tokens at just 4.24 tokens per second.</p></div><div class="el-p"><p dir="auto">While initial prompt evaluation remains efficient across all sizes due to KV caching optimizations, total generation time and token output rates degrade predictably as model size and memory demands increase. The HP Z2 Mini G1a demonstrates it can scale up to the 70B tier, but users should expect noticeable slowdowns in responsiveness beyond 14B for long or complex prompts.</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table><thead><tr><th dir="ltr">Ollama 1.5B</th><th dir="ltr">Total Duration (s)</th><th dir="ltr">Load Duration (ms)</th><th dir="ltr">Prompt Eval Count (tokens)</th><th dir="ltr">Prompt Eval Duration (ms)</th><th dir="ltr">Prompt Eval Rate</th><th dir="ltr">Eval Count (tokens)</th><th dir="ltr">Eval Duration (s)</th><th dir="ltr">Eval Rate</th></tr></thead><tbody><tr><td dir="ltr">HP Z2 Mini g1a</td><td dir="ltr">4.76 s</td><td dir="ltr">17.21 ms</td><td dir="auto">22</td><td dir="ltr">30.68 ms</td><td dir="ltr">716.99 tk/s</td><td dir="auto">528</td><td dir="ltr">4.71 s</td><td dir="ltr">112.18 tk/s</td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>Ollama 7B</i></b></td><td width="624" colspan="8" dir="auto"></td></tr><tr><td dir="ltr">HP Z2 Mini g1a</td><td dir="ltr">36.65 s</td><td dir="ltr">18.21 ms</td><td dir="auto">22</td><td dir="ltr">27.52 ms</td><td dir="ltr">799.29 tk/s</td><td dir="auto">1349</td><td dir="ltr">36.06 s</td><td dir="ltr">36.86 tk/s</td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>Ollama 14B</i></b></td><td width="624" colspan="8" dir="auto"></td></tr><tr><td dir="ltr">HP Z2 Mini g1a</td><td dir="ltr">64.97 s</td><td dir="ltr">18.66 ms</td><td dir="auto">22</td><td dir="ltr">28.41 ms</td><td dir="ltr">774.37 tk/s</td><td dir="auto">1227</td><td dir="ltr">64.92 s</td><td dir="ltr">18.90 tk/s</td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>Ollama 32B</i></b></td><td width="624" colspan="8" dir="auto"></td></tr><tr><td dir="ltr">HP Z2 Mini g1a</td><td dir="ltr">94.29 s</td><td dir="ltr">73.83 ms</td><td dir="auto">22</td><td dir="ltr">69.27 ms</td><td dir="ltr">317.61 tk/s</td><td dir="auto">883</td><td dir="ltr">94.14 s</td><td dir="ltr">9.38 tk/s</td></tr><tr><td width="624" colspan="1" dir="ltr"><b><i>Ollama 70B</i></b></td><td width="624" colspan="8" dir="auto"></td></tr><tr><td dir="ltr">HP Z2 Mini g1a</td><td dir="ltr">164.73 s</td><td dir="ltr">21.97 ms</td><td dir="auto">22</td><td dir="ltr">38.90 ms</td><td dir="ltr">565.52 tk/s</td><td dir="auto">699</td><td dir="ltr">164.67 s</td><td dir="ltr">4.24 tk/s</td></tr></tbody></table></div><div class="el-h3"><h3 data-heading="Support for OpenAI’s New GPT-OSS 120B Model" dir="auto" class="heading" id="Support_for_OpenAI’s_New_GPT-OSS_120B_Model_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Support for OpenAI’s New GPT-OSS 120B Model</h3></div><div class="el-p"><p dir="auto">A few days ago, OpenAI released its first open-source LLM releases in a long time: the GPT-OSS 120B and 20B models. The GPT-OSS 120B represents a breakthrough as one of the first models natively trained with MXFP4 quantization. According to OpenAI, the models undergo post-training with MoE weight quantization to MXFP4 format, reducing weights to just 4.25 bits per parameter. Since MoE weights constitute over 90% of the total parameter count, this aggressive quantization enables the 120B model to fit on a single 80GB H100 GPU or, in our case, the Ryzen AI Max+ PRO 395 with its 96GB of shared memory. This alignment with industry trends is particularly significant, as lower-precision Mixture of Experts models become increasingly prevalent, allowing devices with lower compute to still deliver outstanding performance in inference.</p></div><div class="el-p"><p dir="auto">This native MXFP4 training also provides a crucial advantage. When further quantizing to Int4 for deployment on the AI Max+ PRO 395, the quality degradation is minimal compared to the substantial losses typically seen when quantizing from BF16 to Int4. The result is that GPT-OSS 120B stands as one of the best-performing models you can run on the AI Max+ PRO 395, delivering near-full quality.</p></div><div class="el-p"><p dir="auto">By leveraging this lower-precision architecture trend, the Z2 Mini G1a transforms what would traditionally require enterprise-grade hardware costing three times as much (like the NVIDIA RTX 6000 Pro with 96GB VRAM) into an accessible workstation solution for large-scale LLM experimentation.</p></div><div class="el-p"><p dir="auto">As shown in LM Studio, the system detects the Radeon 8060S GPU with 96GB of VRAM and confirms compatibility for model execution. The configuration also supports offloading KV cache to GPU memory, further enhancing inference efficiency for long prompts or extended conversations. With OpenAI’s strict model guardrails enabled, the system remains protected against overload, even during heavy LLM workloads.</p></div><div class="el-p"><p dir="auto"><img src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%201024%20826'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">Our installed runtime extension packs include ROCm llama.cpp (Windows), Vulkan llama.cpp (Windows), CPU llama.cpp (Windows), and the Harmony framework. CUDA is also listed but not usable, as it requires an NVIDIA GPU, and the system is equipped with an AMD Radeon 8060S.</p></div><div class="el-p"><p dir="auto"><img src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%201024%20826'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">For this run, the image below shows the OpenAI GPT OSS 120B model referenced earlier, along with its format, architecture, and size. It uses the GGUF format, has a total size of 63.39 GB, and is configured for full GPU offload.</p></div><div class="el-p"><p dir="auto"><img src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%201024%20826'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">In terms of use, the HP Z2 Mini G1a was surprisingly performant using the 120B parameter model, maintaining a rate close to 40 tokens/sec. We worked through several detailed conversations with the LLM. The quality of the responses was much better than using smaller models, which many systems are limited to due to VRAM constraints.</p></div><div class="el-p"><p dir="auto"><img src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%201219%20983'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">Looking at the system stats with the LLM running, we saw the GPU consuming just below 100W of power, and temperatures stayed in check at 51-54 °C across the GPU and CPU.</p></div><div class="el-p"><p dir="auto"><img src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%201470%20897'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-h3"><h3 data-heading="Conclusion" dir="auto" class="heading" id="Conclusion_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Conclusion</h3></div><div class="el-p"><p dir="auto">The HP Z2 Mini G1a is one of the most surprising systems we’ve tested this year. On paper, it looks like a compact desktop with integrated graphics. In practice, this small workstation consistently delivers performance well beyond expectations, especially when it comes to AI workloads. At a street price around $3,300, it competes with much larger and more expensive systems, including those equipped with high-end discrete GPUs.</p></div><div class="el-p"><p dir="auto">This system also gives us a chance to revisit the <a data-tooltip-position="top" aria-label="https://www.storagereview.com/review/hp-zbook-ultra-g1a-14-review-all-the-ai-hype-not-enough-payoff" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/review/hp-zbook-ultra-g1a-14-review-all-the-ai-hype-not-enough-payoff" target="_self">HP ZBook Ultra G1a 14-inch laptop</a> we reviewed earlier this year. At that time, we were frustrated by its high price and lackluster performance, particularly in AI-focused tasks. Despite using similar AMD hardware, the laptop struggled with inferencing, and we emphasized that the AI performance fell short of marketing claims. We walked away unimpressed.</p></div><div class="el-p"><p dir="auto">What a difference a few months and a serious software update can make. Thanks to AMD’s continued work on their drivers and runtime support, the Ryzen AI Max+ Pro 395 now performs as we had hoped. With 128GB of shared memory and up to 96GB available as VRAM, the Z2 Mini G1a can run massive local models like OpenAI’s GPT-OSS 120B with surprising ease. That kind of capability used to require a $10,000 workstation with an RTX 6000 or similar GPU. Now, it fits in a compact chassis at a fraction of the cost.</p></div><div class="el-p"><p dir="auto"><img alt="HP Z2 Mini G1a Front" src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%201500%201008'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">HP deserves praise for more than just component choices. The Z2 Mini G1a is thoughtfully designed with strong thermal performance, excellent port flexibility, and optional features like Flex IO and HP ZCentral Remote Boost that add meaningful value in professional environments.</p></div><div class="el-p"><p dir="auto">This system resets expectations for what a small-form-factor workstation can deliver. It combines impressive local AI performance, intelligent design, and a price that feels almost too good to be true. For that reason, the HP Z2 Mini G1a earns our Editor’s Choice award. It is that good.</p></div><div class="el-p"><p dir="auto"><img src="https://www.storagereview.com/review/www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://www.hp.com/us-en/workstations/z2-mini-a.html" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://www.hp.com/us-en/workstations/z2-mini-a.html" target="_self">Product Page</a></p></div><div class="el-p"><p dir="auto"><strong>Engage with StorageReview</strong></p></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://www.storagereview.com/storage_newsletter" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/storage_newsletter" target="_self">Newsletter</a> &nbsp;|&nbsp; <a data-tooltip-position="top" aria-label="https://www.youtube.com/user/StorageReview" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://www.youtube.com/user/StorageReview" target="_self">YouTube</a> &nbsp;| Podcast&nbsp; <a data-tooltip-position="top" aria-label="https://podcasts.apple.com/gb/podcast/storagereview-com-storage-reviews/id1060681115" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://podcasts.apple.com/gb/podcast/storagereview-com-storage-reviews/id1060681115" target="_self">iTunes</a> / <a data-tooltip-position="top" aria-label="https://open.spotify.com/show/1y6VnznABhHeOSMOmbDTz0" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://open.spotify.com/show/1y6VnznABhHeOSMOmbDTz0" target="_self">Spotify</a> &nbsp;|&nbsp; <a data-tooltip-position="top" aria-label="https://www.instagram.com/storagereview/" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://www.instagram.com/storagereview/" target="_self">Instagram</a> &nbsp;|&nbsp; <a data-tooltip-position="top" aria-label="https://twitter.com/storagereview" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://twitter.com/storagereview" target="_self">Twitter</a> &nbsp;|&nbsp; <a data-tooltip-position="top" aria-label="https://www.tiktok.com/@storagereview?" rel="noopener nofollow" class="external-link is-unresolved" title="Opens in a new window" href="https://www.tiktok.com/@storagereview?" target="_self">TikTok</a> &nbsp;|&nbsp; <a data-tooltip-position="top" aria-label="https://www.storagereview.com/rss.xml" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.storagereview.com/rss.xml" target="_self">RSS Feed</a></p></div><div class="el-h3"><h3 data-heading="Kevin OBrien" dir="auto" class="heading" id="Kevin_OBrien_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Kevin OBrien</h3></div><div class="el-p"><p dir="auto">Inside the StorageReview Lab evaluating products and working with industry leaders to develop new testing environments. At home I'm raising a family.</p></div><div class="footer"><div class="data-bar"></div></div></div></div></div><div id="right-content" class="leaf" style="--sidebar-width: var(--sidebar-width-right);"><div id="right-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme-toggle-input" id=""><input class="theme-toggle-input" type="checkbox" id="theme-toggle-input"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="right-sidebar-content" class="leaf-content"><div class="graph-view-wrapper"><div class="feature-header"><div class="feature-title">Interactive Graph</div></div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<div class="graph-icon graph-global" role="button" aria-label="Global Graph" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-git-fork"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"></path><path d="M12 12v3"></path></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div id="outline" class=" tree-container"><div class="feature-header"><div class="feature-title">Table Of Contents</div><button class="clickable-icon nav-action-button tree-collapse-all" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-item mod-collapsible" data-depth="1"><a class="tree-item-self is-clickable mod-collapsible" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#HP_Z2_Mini_G1a_Review_Running_GPT-OSS_120B_Without_a_Discrete_GPU_0" data-path="#HP_Z2_Mini_G1a_Review_Running_GPT-OSS_120B_Without_a_Discrete_GPU_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="HP Z2 Mini G1a Review: Running GPT-OSS 120B Without a Discrete GPU">HP Z2 Mini G1a Review: Running GPT-OSS 120B Without a Discrete GPU</div></a><div class="tree-item-children"><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#[HP_Z2_Mini_G1a_Review_Running_GPT-OSS_120B_Without_a_Discrete_GPU](https//www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu)_0" data-path="#[HP_Z2_Mini_G1a_Review_Running_GPT-OSS_120B_Without_a_Discrete_GPU](https//www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu)_0"><div class="tree-item-inner heading-link" heading-name="[HP Z2 Mini G1a Review Running GPT-OSS 120B Without a Discrete GPU](https://www.storagereview.com/review/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu)"><span>HP Z2 Mini G1a Review Running GPT-OSS 120B Without a Discrete GPU</span></div></a><div class="tree-item-children"></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-item-self is-clickable mod-collapsible" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#[GLM_4.5-Air-106B_and_Qwen3-235B_on_AMD_Strix_Halo_AI_Ryzen_MAX+_395_(HP_Z2_G1a_Mini_Workstation)](GLM%204.5-Air-106B%20and%20Qwen3-235B%20on%20AMD%20Strix%20Halo%20AI%20Ryzen%20MAX+%20395%20%20(HP%20Z2%20G1a%20Mini%20Workstation).md)_0" data-path="#[GLM_4.5-Air-106B_and_Qwen3-235B_on_AMD_Strix_Halo_AI_Ryzen_MAX+_395_(HP_Z2_G1a_Mini_Workstation)](GLM%204.5-Air-106B%20and%20Qwen3-235B%20on%20AMD%20Strix%20Halo%20AI%20Ryzen%20MAX+%20395%20%20(HP%20Z2%20G1a%20Mini%20Workstation).md)_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="[GLM 4.5-Air-106B and Qwen3-235B on AMD Strix Halo AI Ryzen MAX+ 395  (HP Z2 G1a Mini Workstation)](GLM%204.5-Air-106B%20and%20Qwen3-235B%20on%20AMD%20Strix%20Halo%20AI%20Ryzen%20MAX+%20395%20%20(HP%20Z2%20G1a%20Mini%20Workstation).md)"><span>GLM 4.5-Air-106B and Qwen3-235B on AMD Strix Halo AI Ryzen MAX+ 395  (HP Z2 G1a Mini Workstation)</span></div></a><div class="tree-item-children"><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#HP_ZCentral_Remote_Boost_0" data-path="#HP_ZCentral_Remote_Boost_0"><div class="tree-item-inner heading-link" heading-name="HP ZCentral Remote Boost">HP ZCentral Remote Boost</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#HP_Z2_Mini_G1a_Specifications_0" data-path="#HP_Z2_Mini_G1a_Specifications_0"><div class="tree-item-inner heading-link" heading-name="HP Z2 Mini G1a Specifications">HP Z2 Mini G1a Specifications</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Design_and_Build_0" data-path="#Design_and_Build_0"><div class="tree-item-inner heading-link" heading-name="Design and Build">Design and Build</div></a><div class="tree-item-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-item-self is-clickable mod-collapsible" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#HP_Z2_Mini_G1a_Performance_Testing_0" data-path="#HP_Z2_Mini_G1a_Performance_Testing_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="HP Z2 Mini G1a Performance Testing">HP Z2 Mini G1a Performance Testing</div></a><div class="tree-item-children"><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#UL_Procyon_AI_Computer_Vision_0" data-path="#UL_Procyon_AI_Computer_Vision_0"><div class="tree-item-inner heading-link" heading-name="UL Procyon: AI Computer Vision">UL Procyon: AI Computer Vision</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#UL_Procyon_AI_Text_Generation_0" data-path="#UL_Procyon_AI_Text_Generation_0"><div class="tree-item-inner heading-link" heading-name="UL Procyon: AI Text Generation">UL Procyon: AI Text Generation</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#UL_Procyon_AI_Image_Generation_0" data-path="#UL_Procyon_AI_Image_Generation_0"><div class="tree-item-inner heading-link" heading-name="UL Procyon: AI Image Generation">UL Procyon: AI Image Generation</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#SPECworkstation_4_0" data-path="#SPECworkstation_4_0"><div class="tree-item-inner heading-link" heading-name="SPECworkstation 4">SPECworkstation 4</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Luxmark_0" data-path="#Luxmark_0"><div class="tree-item-inner heading-link" heading-name="Luxmark">Luxmark</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#7-Zip_Compression_0" data-path="#7-Zip_Compression_0"><div class="tree-item-inner heading-link" heading-name="7-Zip Compression">7-Zip Compression</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Blackmagic_RAW_Speed_Test_0" data-path="#Blackmagic_RAW_Speed_Test_0"><div class="tree-item-inner heading-link" heading-name="Blackmagic RAW Speed Test">Blackmagic RAW Speed Test</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Blackmagic_Disk_Speed_Test_0" data-path="#Blackmagic_Disk_Speed_Test_0"><div class="tree-item-inner heading-link" heading-name="Blackmagic Disk Speed Test">Blackmagic Disk Speed Test</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Blender_Benchmark_0" data-path="#Blender_Benchmark_0"><div class="tree-item-inner heading-link" heading-name="Blender Benchmark">Blender Benchmark</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#y-cruncher_0" data-path="#y-cruncher_0"><div class="tree-item-inner heading-link" heading-name="y-cruncher">y-cruncher</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Geekbench_6_0" data-path="#Geekbench_6_0"><div class="tree-item-inner heading-link" heading-name="Geekbench 6">Geekbench 6</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Cinebench_R23_0" data-path="#Cinebench_R23_0"><div class="tree-item-inner heading-link" heading-name="Cinebench R23">Cinebench R23</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Cinebench_2024_0" data-path="#Cinebench_2024_0"><div class="tree-item-inner heading-link" heading-name="Cinebench 2024">Cinebench 2024</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Ollama_Gemma3_LLM_Performance_0" data-path="#Ollama_Gemma3_LLM_Performance_0"><div class="tree-item-inner heading-link" heading-name="Ollama Gemma3 LLM Performance">Ollama Gemma3 LLM Performance</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Support_for_OpenAI’s_New_GPT-OSS_120B_Model_0" data-path="#Support_for_OpenAI’s_New_GPT-OSS_120B_Model_0"><div class="tree-item-inner heading-link" heading-name="Support for OpenAI’s New GPT-OSS 120B Model">Support for OpenAI’s New GPT-OSS 120B Model</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Conclusion_0" data-path="#Conclusion_0"><div class="tree-item-inner heading-link" heading-name="Conclusion">Conclusion</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="cougar-ears/hp-z2-mini-g1a-review-running-gpt-oss-120b-without-a-discrete-gpu.html#Kevin_OBrien_0" data-path="#Kevin_OBrien_0"><div class="tree-item-inner heading-link" heading-name="Kevin OBrien">Kevin OBrien</div></a><div class="tree-item-children"></div></div></div></div></div></div></div></div></div><script defer="">let rs = document.querySelector("#right-sidebar"); rs.classList.toggle("is-collapsed", window.innerWidth < 768); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></div></div></body></html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html> <html lang="en"><head>
+<title>netbootxyz/netboot.xyz: Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE.</title>
+<base href="..">
+<meta name="pathname" content="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html">
+<meta name="description" content="Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE. - netbootxyz/netboot.xyz">
+<meta property="og:title" content="netbootxyz/netboot.xyz: Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE.">
+<meta property="og:description" content="Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE. - netbootxyz/netboot.xyz">
+<meta property="og:type" content="website">
+<meta property="og:url" content="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html">
+<meta property="og:image" content="https://i.imgur.com/rPSk2RF.png">
+<meta name="author" content="[[netbootxyz]],[[netboot-ci]]"><meta charset="UTF-8"><meta property="og:site_name" content="Obsidian Vault"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="site-lib/rss.xml"><script async="" id="webpage-script" src="site-lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-wasm-script" src="site-lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="site-lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="site-lib/media/favicon.png"><link rel="stylesheet" href="site-lib/styles/obsidian.css"><link rel="preload" href="site-lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="site-lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/main-styles.css"></noscript><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-vertical-spacing:1.3em;--sidebar-margin:12px}:root{background-color:#202124}.sidebar{height:100%;font-size:14px;z-index:10;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));position:relative;overflow:hidden;overflow:clip;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}#left-sidebar{left:0}#right-sidebar{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}.sidebar.floating{position:absolute}.sidebar .leaf-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .leaf-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}#left-sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}#right-sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar #left-sidebar-content,.sidebar #right-sidebar-content{contain:none!important;container-type:normal!important;animation:none!important}.sidebar:has(.leaf-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:calc(2.3em + 2 * var(--sidebar-margin));width:var(--sidebar-width);padding:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}#left-sidebar .sidebar-topbar{left:0;flex-direction:row;border-top-right-radius:var(--radius-l)}#right-sidebar .sidebar-topbar{right:0;flex-direction:row-reverse;border-top-left-radius:var(--radius-l)}#left-sidebar .topbar-content{margin-right:calc(2.3em + var(--sidebar-margin));flex-direction:row}#right-sidebar .topbar-content{margin-left:calc(2.3em + var(--sidebar-margin));flex-direction:row-reverse}.topbar-content{overflow:hidden visible;overflow:clip visible;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:2px!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}#left-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}#right-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.feature-title{margin-left:1px;text-transform:uppercase;letter-spacing:.06em;margin-top:.75em;margin-bottom:.75em}.feature-header{display:flex;align-items:center;padding-top:0;font-size:1em;padding-left:0}body.floating-sidebars .sidebar{position:absolute}body{transition:background-color var(--color-fade-speed) ease-in-out}#navbar:not(:empty){display:flex;align-items:center;justify-content:space-between;padding:.5em 1em;width:100%}#main{display:flex;flex-direction:column;height:100%;width:100%;align-items:stretch;justify-content:center}#main-horizontal{display:flex;flex-direction:row;flex-grow:1;width:100%;align-items:stretch;justify-content:center}#center-content{flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0!important;transition:opacity .2s ease-in-out;pointer-events:none}#center-content>.obsidian-document{padding-left:2em;padding-right:1em;margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}body #center-content>.obsidian-document>.markdown-preview-sizer{padding-bottom:80vh;width:100%;max-width:var(--line-width);flex-basis:var(--line-width);transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document>div{width:100%!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document:not([data-type=markdown]).embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}#center-content>.obsidian-document:not([data-type=markdown]).embed>*{max-width:100%;max-height:100%;object-fit:contain}:not(h1,h2,h3,h4,h5,h6,li):has(> :is(.math,table)){overflow-x:auto!important}#center-content>.obsidian-document:not([data-type=markdown]){overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.obsidian-document[data-type=attachment]{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%}.obsidian-document[data-type=attachment]>*{outline:0;border:none;box-shadow:none}.obsidian-document[data-type=attachment] :is(img){max-width:90%;max-height:90%;object-fit:contain}.obsidian-document[data-type=attachment]>:is(audio){width:100%;max-width:min(90%,var(--line-width))}.obsidian-document[data-type=attachment]>:is(embed,iframe,video){width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.canvas-wrapper>:is(.header,.footer){z-index:100;position:absolute;display:flex;justify-content:center;flex-direction:column;width:100%;align-items:center}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){let e=document.querySelectorAll("link[itemprop='include']");for(const t of e){let e=t.getAttribute("href");try{let o="";if(e.startsWith("https:")||e.startsWith("http:")||"file:"!=window.location.protocol){const n=await fetch(e);if(!n.ok){console.log("Could not include file: "+e),t?.remove();continue}o=await n.text()}else{const t=document.getElementById(btoa(encodeURI(e)));if(t){const e=JSON.parse(decodeURI(atob(t.getAttribute("value")??"")));o=e?.data??""}}let n=document.createRange().createContextualFragment(o);t.before(n),t.remove(),console.log("Included text: "+o),console.log("Included file: "+e)}catch(o){t?.remove(),console.log("Could not include file: "+e,o);continue}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script")));!function e(n){let l=o[n],c=n+1;l?(l&&"true"!=l.getAttribute("loaded")||n<o.length&&e(c),n<o.length&&l.addEventListener("load",(()=>e(c)))):n<o.length?e(c):t()}(0)}</script></head><body class="publish css-settings-manager styled-scrollbars show-inline-title show-ribbon is-focused"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="parsed-feature-container" style="display: contents;"><link itemprop="include" href="site-lib/html/custom-head-content-content.html"></div><div id="main"><div id="navbar"></div><div id="main-horizontal"><div id="left-content" class="leaf" style="--sidebar-width: var(--sidebar-width-left);"><div id="left-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><div id="search-container"><div id="search-wrapper"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div aria-label="Clear search" id="search-clear-button"></div></div></div></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="left-sidebar-content" class="leaf-content"><link itemprop="include" href="site-lib/html/file-tree-content.html"></div></div><script defer="">let ls = document.querySelector("#left-sidebar"); ls.classList.toggle("is-collapsed", window.innerWidth < 768); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div></div><div id="center-content" class="leaf"><div class="obsidian-document markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings allow-fold-lists show-indentation-guide show-properties" data-type="markdown"><style id="MJX-CHTML-styles">mjx-msub{display:inline-block;text-align:left}mjx-c.mjx-c1D435.TEX-I::before{padding:.683em .759em 0 0;content:"B"}mjx-c.mjx-c1D45E.TEX-I::before{padding:.442em .46em .194em 0;content:"q"}mjx-c.mjx-c1D43E.TEX-I::before{padding:.683em .889em 0 0;content:"K"}mjx-c.mjx-c3C::before{padding:.54em .778em .04em 0;content:"<"}mjx-c.mjx-c3E::before{padding:.54em .778em .04em 0;content:">"}mjx-c.mjx-c32::before{padding:.666em .5em 0 0;content:"2"}mjx-c.mjx-c33::before{padding:.665em .5em .022em 0;content:"3"}mjx-c.mjx-c22::before{padding:.694em .5em 0 0;content:"\""}mjx-c.mjx-c1D43F.TEX-I::before{padding:.683em .681em 0 0;content:"L"}mjx-c.mjx-c35::before{padding:.666em .5em .022em 0;content:"5"}mjx-c.mjx-c39::before{padding:.666em .5em .022em 0;content:"9"}mjx-c.mjx-c34::before{padding:.677em .5em 0 0;content:"4"}mjx-c.mjx-c37::before{padding:.676em .5em .022em 0;content:"7"}mjx-c.mjx-c1D43A.TEX-I::before{padding:.705em .786em .022em 0;content:"G"}mjx-c.mjx-c1D442.TEX-I::before{padding:.704em .763em .022em 0;content:"O"}mjx-c.mjx-c1D443.TEX-I::before{padding:.683em .751em 0 0;content:"P"}mjx-c.mjx-c1D434.TEX-I::before{padding:.716em .75em 0 0;content:"A"}mjx-c.mjx-c1D447.TEX-I::before{padding:.677em .704em 0 0;content:"T"}mjx-c.mjx-c1D43B.TEX-I::before{padding:.683em .888em 0 0;content:"H"}mjx-c.mjx-c2F::before{padding:.75em .5em .25em 0;content:"/"}mjx-c.mjx-c1D440.TEX-I::before{padding:.683em 1.051em 0 0;content:"M"}mjx-c.mjx-c2E::before{padding:.12em .278em 0 0;content:"."}mjx-c.mjx-c28::before{padding:.75em .389em .25em 0;content:"("}mjx-c.mjx-c1D454.TEX-I::before{padding:.442em .477em .205em 0;content:"g"}mjx-c.mjx-c29::before{padding:.75em .389em .25em 0;content:")"}mjx-c.mjx-c5C::before{padding:.75em .5em .25em 0;content:"\\"}mjx-c.mjx-c1D43D.TEX-I::before{padding:.683em .633em .022em 0;content:"J"}mjx-c.mjx-c24::before{padding:.75em .5em .056em 0;content:"$"}mjx-c.mjx-c1D437.TEX-I::before{padding:.683em .828em 0 0;content:"D"}mjx-c.mjx-c1D441.TEX-I::before{padding:.683em .888em 0 0;content:"N"}mjx-c.mjx-c1D43C.TEX-I::before{padding:.683em .504em 0 0;content:"I"}mjx-c.mjx-c1D457.TEX-I::before{padding:.661em .412em .204em 0;content:"j"}mjx-c.mjx-c5B::before{padding:.75em .278em .25em 0;content:"["}mjx-c.mjx-c1D449.TEX-I::before{padding:.683em .769em .022em 0;content:"V"}mjx-c.mjx-c1D439.TEX-I::before{padding:.68em .749em 0 0;content:"F"}mjx-c.mjx-c60::before{padding:.699em .5em 0 0;content:"`"}mjx-c.mjx-c1D436.TEX-I::before{padding:.705em .76em .022em 0;content:"C"}mjx-c.mjx-c7C::before{padding:.75em .278em .249em 0;content:"|"}mjx-c.mjx-c1D448.TEX-I::before{padding:.683em .767em .022em 0;content:"U"}mjx-c.mjx-c1D446.TEX-I::before{padding:.705em .645em .022em 0;content:"S"}mjx-c.mjx-c1D438.TEX-I::before{padding:.68em .764em 0 0;content:"E"}mjx-c.mjx-c1D445.TEX-I::before{padding:.683em .759em .021em 0;content:"R"}mjx-c.mjx-c3A::before{padding:.43em .278em 0 0;content:":"}mjx-mn{display:inline-block;text-align:left}mjx-c.mjx-c1D45D.TEX-I::before{padding:.442em .503em .194em 0;content:"p"}mjx-c.mjx-c31::before{padding:.666em .5em 0 0;content:"1"}mjx-mtext{display:inline-block;text-align:left}mjx-container[jax=CHTML]{line-height:0}mjx-container [space="1"]{margin-left:.111em}mjx-container [space="2"]{margin-left:.167em}mjx-container [space="3"]{margin-left:.222em}mjx-container [space="4"]{margin-left:.278em}mjx-container [space="5"]{margin-left:.333em}mjx-container [rspace="1"]{margin-right:.111em}mjx-container [rspace="2"]{margin-right:.167em}mjx-container [rspace="3"]{margin-right:.222em}mjx-container [rspace="4"]{margin-right:.278em}mjx-container [rspace="5"]{margin-right:.333em}mjx-container [size="s"]{font-size:70.7%}mjx-container [size=ss]{font-size:50%}mjx-container [size=Tn]{font-size:60%}mjx-container [size=sm]{font-size:85%}mjx-container [size=lg]{font-size:120%}mjx-container [size=Lg]{font-size:144%}mjx-container [size=LG]{font-size:173%}mjx-container [size=hg]{font-size:207%}mjx-container [size=HG]{font-size:249%}mjx-container [width=full]{width:100%}mjx-box{display:inline-block}mjx-block{display:block}mjx-itable{display:inline-table}mjx-row{display:table-row}mjx-row>*{display:table-cell}mjx-mtext{display:inline-block}mjx-mstyle{display:inline-block}mjx-merror{display:inline-block;color:red;background-color:#ff0}mjx-mphantom{visibility:hidden}mjx-assistive-mml{top:0;left:0;clip:rect(1px,1px,1px,1px);user-select:none;position:absolute!important;padding:1px 0 0!important;border:0!important;display:block!important;width:auto!important;overflow:hidden!important}mjx-assistive-mml[display=block]{width:100%!important}mjx-math{display:inline-block;text-align:left;line-height:0;text-indent:0;font-style:normal;font-weight:400;font-size:100%;font-size-adjust:none;letter-spacing:normal;border-collapse:collapse;overflow-wrap:normal;word-spacing:normal;white-space:nowrap;direction:ltr;padding:1px 0}mjx-container[jax=CHTML][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=CHTML][display=true][width=full]{display:flex}mjx-container[jax=CHTML][display=true] mjx-math{padding:0}mjx-container[jax=CHTML][justify=left]{text-align:left}mjx-container[jax=CHTML][justify=right]{text-align:right}mjx-mi{display:inline-block;text-align:left}mjx-c{display:inline-block}mjx-utext{display:inline-block;padding:.75em 0 .2em}mjx-mo{display:inline-block;text-align:left}mjx-stretchy-h{display:inline-table;width:100%}mjx-stretchy-h>*{display:table-cell;width:0}mjx-stretchy-h>*>mjx-c{display:inline-block;transform:scaleX(1)}mjx-stretchy-h>*>mjx-c::before{display:inline-block;width:initial}mjx-stretchy-h>mjx-ext{overflow:clip visible;width:100%}mjx-stretchy-h>mjx-ext>mjx-c::before{transform:scaleX(500)}mjx-stretchy-h>mjx-ext>mjx-c{width:0}mjx-stretchy-h>mjx-beg>mjx-c{margin-right:-.1em}mjx-stretchy-h>mjx-end>mjx-c{margin-left:-.1em}mjx-stretchy-v{display:inline-block}mjx-stretchy-v>*{display:block}mjx-stretchy-v>mjx-beg{height:0}mjx-stretchy-v>mjx-end>mjx-c{display:block}mjx-stretchy-v>*>mjx-c{transform:scaleY(1);transform-origin:left center;overflow:hidden}mjx-stretchy-v>mjx-ext{display:block;height:100%;box-sizing:border-box;border:0 solid transparent;overflow:visible clip}mjx-stretchy-v>mjx-ext>mjx-c::before{width:initial;box-sizing:border-box}mjx-stretchy-v>mjx-ext>mjx-c{transform:scaleY(500) translateY(.075em);overflow:visible}mjx-mark{display:inline-block;height:0}mjx-texatom{display:inline-block;text-align:left}mjx-c::before{display:block;width:0}.MJX-TEX{font-family:MJXZERO,MJXTEX}.TEX-B{font-family:MJXZERO,MJXTEX-B}.TEX-I{font-family:MJXZERO,MJXTEX-I}.TEX-MI{font-family:MJXZERO,MJXTEX-MI}.TEX-BI{font-family:MJXZERO,MJXTEX-BI}.TEX-S1{font-family:MJXZERO,MJXTEX-S1}.TEX-S2{font-family:MJXZERO,MJXTEX-S2}.TEX-S3{font-family:MJXZERO,MJXTEX-S3}.TEX-S4{font-family:MJXZERO,MJXTEX-S4}.TEX-A{font-family:MJXZERO,MJXTEX-A}.TEX-C{font-family:MJXZERO,MJXTEX-C}.TEX-CB{font-family:MJXZERO,MJXTEX-CB}.TEX-FR{font-family:MJXZERO,MJXTEX-FR}.TEX-FRB{font-family:MJXZERO,MJXTEX-FRB}.TEX-SS{font-family:MJXZERO,MJXTEX-SS}.TEX-SSB{font-family:MJXZERO,MJXTEX-SSB}.TEX-SSI{font-family:MJXZERO,MJXTEX-SSI}.TEX-SC{font-family:MJXZERO,MJXTEX-SC}.TEX-T{font-family:MJXZERO,MJXTEX-T}.TEX-V{font-family:MJXZERO,MJXTEX-V}.TEX-VB{font-family:MJXZERO,MJXTEX-VB}mjx-stretchy-h mjx-c,mjx-stretchy-v mjx-c{font-family:MJXZERO,MJXTEX-S1,MJXTEX-S4,MJXTEX,MJXTEX-A!important}@font-face{font-family:MJXZERO;src:url("site-lib/fonts/mathjax_zero.woff") format("woff")}@font-face{font-family:MJXTEX;src:url("site-lib/fonts/mathjax_main-regular.woff") format("woff")}@font-face{font-family:MJXTEX-B;src:url("site-lib/fonts/mathjax_main-bold.woff") format("woff")}@font-face{font-family:MJXTEX-I;src:url("site-lib/fonts/mathjax_math-italic.woff") format("woff")}@font-face{font-family:MJXTEX-MI;src:url("site-lib/fonts/mathjax_main-italic.woff") format("woff")}@font-face{font-family:MJXTEX-BI;src:url("site-lib/fonts/mathjax_math-bolditalic.woff") format("woff")}@font-face{font-family:MJXTEX-S1;src:url("site-lib/fonts/mathjax_size1-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S2;src:url("site-lib/fonts/mathjax_size2-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S3;src:url("site-lib/fonts/mathjax_size3-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S4;src:url("site-lib/fonts/mathjax_size4-regular.woff") format("woff")}@font-face{font-family:MJXTEX-A;src:url("site-lib/fonts/mathjax_ams-regular.woff") format("woff")}@font-face{font-family:MJXTEX-C;src:url("site-lib/fonts/mathjax_calligraphic-regular.woff") format("woff")}@font-face{font-family:MJXTEX-CB;src:url("site-lib/fonts/mathjax_calligraphic-bold.woff") format("woff")}@font-face{font-family:MJXTEX-FR;src:url("site-lib/fonts/mathjax_fraktur-regular.woff") format("woff")}@font-face{font-family:MJXTEX-FRB;src:url("site-lib/fonts/mathjax_fraktur-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SS;src:url("site-lib/fonts/mathjax_sansserif-regular.woff") format("woff")}@font-face{font-family:MJXTEX-SSB;src:url("site-lib/fonts/mathjax_sansserif-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SSI;src:url("site-lib/fonts/mathjax_sansserif-italic.woff") format("woff")}@font-face{font-family:MJXTEX-SC;src:url("site-lib/fonts/mathjax_script-regular.woff") format("woff")}@font-face{font-family:MJXTEX-T;src:url("site-lib/fonts/mathjax_typewriter-regular.woff") format("woff")}@font-face{font-family:MJXTEX-V;src:url("site-lib/fonts/mathjax_vector-regular.woff") format("woff")}@font-face{font-family:MJXTEX-VB;src:url("site-lib/fonts/mathjax_vector-bold.woff") format("woff")}mjx-c.mjx-c1D464.TEX-I::before{padding:.443em .716em .011em 0;content:"w"}mjx-c.mjx-c1D45C.TEX-I::before{padding:.441em .485em .011em 0;content:"o"}mjx-c.mjx-c1D45F.TEX-I::before{padding:.442em .451em .011em 0;content:"r"}mjx-c.mjx-c1D458.TEX-I::before{padding:.694em .521em .011em 0;content:"k"}mjx-c.mjx-c5F::before{padding:0 .5em .062em 0;content:"_"}mjx-c.mjx-c1D451.TEX-I::before{padding:.694em .52em .01em 0;content:"d"}mjx-c.mjx-c1D456.TEX-I::before{padding:.661em .345em .011em 0;content:"i"}mjx-c.mjx-c1D461.TEX-I::before{padding:.626em .361em .011em 0;content:"t"}mjx-c.mjx-c210E.TEX-I::before{padding:.694em .576em .011em 0;content:"h"}mjx-c.mjx-c1D452.TEX-I::before{padding:.442em .466em .011em 0;content:"e"}mjx-c.mjx-c1D465.TEX-I::before{padding:.442em .572em .011em 0;content:"x"}mjx-c.mjx-c1D450.TEX-I::before{padding:.442em .433em .011em 0;content:"c"}mjx-c.mjx-c1D459.TEX-I::before{padding:.694em .298em .011em 0;content:"l"}mjx-c.mjx-c1D462.TEX-I::before{padding:.442em .572em .011em 0;content:"u"}mjx-c.mjx-c1D460.TEX-I::before{padding:.442em .469em .01em 0;content:"s"}mjx-c.mjx-c1D453.TEX-I::before{padding:.705em .55em .205em 0;content:"f"}mjx-c.mjx-c2C::before{padding:.121em .278em .194em 0;content:","}mjx-c.mjx-c1D44F.TEX-I::before{padding:.694em .429em .011em 0;content:"b"}mjx-c.mjx-c1D44E.TEX-I::before{padding:.441em .529em .01em 0;content:"a"}mjx-c.mjx-c1D466.TEX-I::before{padding:.442em .49em .205em 0;content:"y"}mjx-c.mjx-c1D45B.TEX-I::before{padding:.442em .6em .011em 0;content:"n"}mjx-c.mjx-c1D45A.TEX-I::before{padding:.442em .878em .011em 0;content:"m"}mjx-c.mjx-c2212::before{padding:.583em .778em .082em 0;content:"−"}mjx-c.mjx-c3D::before{padding:.583em .778em .082em 0;content:"="}mjx-c.mjx-c2033::before{padding:.56em .55em 0 0;content:"′′"}</style><pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">title</span><span class="token punctuation">:</span> <span class="token string">"netbootxyz/netboot.xyz: Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE."</span>
+<span class="token key atrule">source</span><span class="token punctuation">:</span> <span class="token string">"https://github.com/netbootxyz/netboot.xyz"</span>
+<span class="token key atrule">author</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"[[netbootxyz]]"</span>
+  <span class="token punctuation">-</span> <span class="token string">"[[netboot-ci]]"</span>
+<span class="token key atrule">published</span><span class="token punctuation">:</span>
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-06-28</span>
+<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">"Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE. - netbootxyz/netboot.xyz"</span>
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"clippings"</span></code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre><div class="markdown-preview-sizer markdown-preview-section"><div class="header"><h1 class="page-title heading inline-title" id="netbootxyz/netboot.xyz_Your_favorite_operating_systems_in_one_place._A_network-based_bootable_operating_system_installer_based_on_iPXE._0">netbootxyz/netboot.xyz: Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE.</h1><div class="data-bar"></div></div><div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div><div class="el-p"><p dir="auto"><img src="https://i.imgur.com/rPSk2RF.png" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto">/ <strong><a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz" target="_self">netboot.xyz</a></strong> Public</p></div><div class="el-p"><p dir="auto">Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.</p></div><div class="el-h2"><h2 data-heading="[netboot.xyz - A network-based bootable operating system installer based on iPXE](https://netboot.xyz/ &quot;https://netboot.xyz&quot;)" dir="auto" class="heading" id="[netboot.xyz_-_A_network-based_bootable_operating_system_installer_based_on_iPXE](https//netboot.xyz/_&quot;https//netboot.xyz&quot;)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span><a data-tooltip-position="top" aria-label="https://netboot.xyz/" rel="noopener nofollow" class="external-link is-unresolved" title="https://netboot.xyz" href="https://netboot.xyz/" target="_self">netboot.xyz - A network-based bootable operating system installer based on iPXE</a></h2></div><div class="el-p"><p dir="auto"><img src="https://i.imgur.com/z5BUqaZ.png" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz/blob/development/LICENSE" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz/blob/development/LICENSE" target="_self">Apache-2.0 license</a></p></div><div class="el-p"><p dir="auto"><img src="https://premium-storefronts.s3.amazonaws.com/storefronts/netbootxyz/assets/logo.png" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table><thead><tr><th colspan="2" dir="ltr"><span>Name</span></th><th colspan="1" dir="ltr"><span>Name</span></th><th dir="ltr"><p><span>Last commit message</span></p></th><th colspan="1" dir="ltr"><p><span>Last commit date</span></p></th></tr></thead><tbody><tr><td colspan="3" dir="ltr"><p><span><a href="https://github.com/netbootxyz/netboot.xyz/commit/633db72dbb32412c4eda2962bf35c6d8059e8d63" target="_self" rel="noopener nofollow" class="is-unresolved">External Version bump for smartos new version string "20250626T191621…</a></span></p><p><span><a href="https://github.com/netbootxyz/netboot.xyz/commit/633db72dbb32412c4eda2962bf35c6d8059e8d63" target="_self" rel="noopener nofollow" class="is-unresolved">633db72</a> ·</span></p><p><a href="https://github.com/netbootxyz/netboot.xyz/commits/development/" target="_self" rel="noopener nofollow" class="is-unresolved"><span><span><span>7,699 Commits</span></span></span></a></p></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/.github" target="_self" rel="noopener nofollow" class="is-unresolved">.github</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/.github" target="_self" rel="noopener nofollow" class="is-unresolved">.github</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/753214e77c47d0440a2d2a17f653ccd09170558a" target="_self" rel="noopener nofollow" class="is-unresolved">Testing out Claude</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/docker-build-root" target="_self" rel="noopener nofollow" class="is-unresolved">docker-build-root</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/docker-build-root" target="_self" rel="noopener nofollow" class="is-unresolved">docker-build-root</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/eabb50e24db747519e0b6fbb0592c3d1d5af483f" target="_self" rel="noopener nofollow" class="is-unresolved">adding basic docker builder</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/etc/netbootxyz/custom" target="_self" rel="noopener nofollow" class="is-unresolved"><span>etc/</span> <span>netbootxyz/</span> <span>custom</span></a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/etc/netbootxyz/custom" target="_self" rel="noopener nofollow" class="is-unresolved"><span>etc/</span> <span>netbootxyz/</span> <span>custom</span></a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/43e2f303def858974f47160e1b657385477e7a9f" target="_self" rel="noopener nofollow" class="is-unresolved">Add recursive to copy in readme</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/roles/netbootxyz" target="_self" rel="noopener nofollow" class="is-unresolved"><span>roles/</span> <span>netbootxyz</span></a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/roles/netbootxyz" target="_self" rel="noopener nofollow" class="is-unresolved"><span>roles/</span> <span>netbootxyz</span></a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/633db72dbb32412c4eda2962bf35c6d8059e8d63" target="_self" rel="noopener nofollow" class="is-unresolved">External Version bump for smartos new version string "20250626T191621…</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/script" target="_self" rel="noopener nofollow" class="is-unresolved">script</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/tree/development/script" target="_self" rel="noopener nofollow" class="is-unresolved">script</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/7c4c656d2972d4772cf2c4b127c4ff0fa003133f" target="_self" rel="noopener nofollow" class="is-unresolved">Increase parallel jobs</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/.ansible-lint" target="_self" rel="noopener nofollow" class="is-unresolved">.ansible-lint</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/.ansible-lint" target="_self" rel="noopener nofollow" class="is-unresolved">.ansible-lint</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/87321e3a265371f71c6b7ebe4dfecc5ec09e2add" target="_self" rel="noopener nofollow" class="is-unresolved">Ansible lint fixes, cleanup, and exclusions</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/.dockerignore" target="_self" rel="noopener nofollow" class="is-unresolved">.dockerignore</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/.dockerignore" target="_self" rel="noopener nofollow" class="is-unresolved">.dockerignore</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/5ca79c80ef513cac2dbd04abcc78d9ec6c382d04" target="_self" rel="noopener nofollow" class="is-unresolved">fix docker build in submodule (</a><a href="https://github.com/netbootxyz/netboot.xyz/pull/1019" target="_self" rel="noopener nofollow" class="is-unresolved">#1019</a><a href="https://github.com/netbootxyz/netboot.xyz/commit/5ca79c80ef513cac2dbd04abcc78d9ec6c382d04" target="_self" rel="noopener nofollow" class="is-unresolved">)</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/CHANGELOG.md" target="_self" rel="noopener nofollow" class="is-unresolved">CHANGELOG.md</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/CHANGELOG.md" target="_self" rel="noopener nofollow" class="is-unresolved">CHANGELOG.md</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/7bc3e6b61f6095a633ec5d9a2559dd9ed6a28939" target="_self" rel="noopener nofollow" class="is-unresolved">fix(ipxe): fix filename checks</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/CONTRIBUTING.md" target="_self" rel="noopener nofollow" class="is-unresolved">CONTRIBUTING.md</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/CONTRIBUTING.md" target="_self" rel="noopener nofollow" class="is-unresolved">CONTRIBUTING.md</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/a89ceb0b28bbc1a1be2c40202920c324a28db164" target="_self" rel="noopener nofollow" class="is-unresolved">Update CONTRIBUTING.md</a></p></td><td dir="auto"></td></tr><tr><td colspan="2" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/Dockerfile" target="_self" rel="noopener nofollow" class="is-unresolved">Dockerfile</a></p></td><td colspan="1" dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/blob/development/Dockerfile" target="_self" rel="noopener nofollow" class="is-unresolved">Dockerfile</a></p></td><td dir="ltr"><p><a href="https://github.com/netbootxyz/netboot.xyz/commit/bb48e64ebbc69dd43ecf2356305e9313a23b980c" target="_self" rel="noopener nofollow" class="is-unresolved">Remove unneeded inventory file</a></p></td><td dir="auto"></td></tr><tr><td colspan="3" dir="auto"></td></tr></tbody></table></div><div class="el-h2"><h2 data-heading="netboot.xyz" dir="auto" class="heading" id="netboot.xyz_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>netboot.xyz</h2></div><div class="el-p"><p dir="auto">Your favorite operating systems in one place!</p></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://camo.githubusercontent.com/511a6c5079724c13af399f59eac9c2fa6790a6e6707b471cd4c6c58cb4ff1260/68747470733a2f2f6e6574626f6f742e78797a2f696d616765732f6e6574626f6f742e78797a2e676966" rel="noopener nofollow" class="external-link is-unresolved" href="https://camo.githubusercontent.com/511a6c5079724c13af399f59eac9c2fa6790a6e6707b471cd4c6c58cb4ff1260/68747470733a2f2f6e6574626f6f742e78797a2f696d616765732f6e6574626f6f742e78797a2e676966" target="_self"><img alt="netboot.xyz menu" src="https://camo.githubusercontent.com/511a6c5079724c13af399f59eac9c2fa6790a6e6707b471cd4c6c58cb4ff1260/68747470733a2f2f6e6574626f6f742e78797a2f696d616765732f6e6574626f6f742e78797a2e676966" referrerpolicy="no-referrer" target="_self" class="is-unresolved"></a></p></div><div class="el-h3"><h3 data-heading="Bootloader Downloads" dir="auto" class="heading" id="Bootloader_Downloads_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Bootloader Downloads</h3></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Type</th>
+<th dir="ltr">Bootloader</th>
+<th dir="ltr">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">ISO</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.iso" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.iso" target="_self">netboot.xyz.iso</a></td>
+<td dir="ltr">Used for CD/DVD, Virtual CDs, DRAC/iLO, VMware, Virtual Box</td>
+</tr>
+<tr>
+<td dir="ltr">USB</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.img" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.img" target="_self">netboot.xyz.img</a></td>
+<td dir="ltr">Used for creation of USB Keys</td>
+</tr>
+</tbody>
+</table></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Type</th>
+<th dir="ltr">Bootloader</th>
+<th dir="ltr">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">Kernel</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn" target="_self">netboot.xyz.lkrn</a></td>
+<td dir="ltr">Used for booting from GRUB/EXTLINUX</td>
+</tr>
+<tr>
+<td dir="ltr">Floppy</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.dsk" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.dsk" target="_self">netboot.xyz.dsk</a></td>
+<td dir="ltr">Virtual floppy disk for DRAC/iLO, VMware, Virtual Box, etc</td>
+</tr>
+<tr>
+<td dir="ltr">Padded Floppy</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.pdsk" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.pdsk" target="_self">netboot.xyz.pdsk</a></td>
+<td dir="ltr">Padded Virtual floppy disk for DRAC/iLO, VMware, Virtual Box, etc</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.kpxe" target="_self">netboot.xyz.kpxe</a></td>
+<td dir="ltr">DHCP boot image file, uses built-in iPXE NIC drivers</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP-undionly</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-undionly.kpxe" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-undionly.kpxe" target="_self">netboot.xyz-undionly.kpxe</a></td>
+<td dir="ltr">DHCP boot image file, use if you have NIC issues</td>
+</tr>
+</tbody>
+</table></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Type</th>
+<th dir="ltr">Bootloader</th>
+<th dir="ltr">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">DHCP</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz.efi" target="_self">netboot.xyz.efi</a></td>
+<td dir="ltr">DHCP boot image file, uses built-in iPXE NIC drivers</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP-snp</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-snp.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-snp.efi" target="_self">netboot.xyz-snp.efi</a></td>
+<td dir="ltr">EFI w/ Simple Network Protocol, attempts to boot all net devices</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP-snponly</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-snponly.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-snponly.efi" target="_self">netboot.xyz-snponly.efi</a></td>
+<td dir="ltr">EFI w/ Simple Network Protocol, only boots from device chained from</td>
+</tr>
+</tbody>
+</table></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Type</th>
+<th dir="ltr">Bootloader</th>
+<th dir="ltr">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">DHCP</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-arm64.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-arm64.efi" target="_self">netboot.xyz-arm64.efi</a></td>
+<td dir="ltr">DHCP boot image file, uses built-in iPXE NIC drivers</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP-snp</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-arm64-snp.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-arm64-snp.efi" target="_self">netboot.xyz-arm64-snp.efi</a></td>
+<td dir="ltr">EFI w/ Simple Network Protocol, attempts to boot all net devices</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP-snponly</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-arm64-snponly.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-arm64-snponly.efi" target="_self">netboot.xyz-arm64-snponly.efi</a></td>
+<td dir="ltr">EFI w/ Simple Network Protocol, only boots from device chained from</td>
+</tr>
+</tbody>
+</table></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Type</th>
+<th dir="ltr">Bootloader</th>
+<th dir="ltr">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">USB/SD Card</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-rpi4-sdcard.img" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-rpi4-sdcard.img" target="_self">netboot.xyz-rpi4-sdcard.img</a></td>
+<td dir="ltr">Raspberry Pi 4 - USB/SD Card Image</td>
+</tr>
+<tr>
+<td dir="ltr">DHCP-snp</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-rpi4-snp.efi" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-rpi4-snp.efi" target="_self">netboot.xyz-rpi4-snp.efi</a></td>
+<td dir="ltr">Raspberry Pi 4 - EFI Image</td>
+</tr>
+</tbody>
+</table></div><div class="el-p"><p dir="auto">SHA256 checksums are generated during each build of iPXE and are located <a data-tooltip-position="top" aria-label="https://boot.netboot.xyz/ipxe/netboot.xyz-sha256-checksums.txt" rel="noopener nofollow" class="external-link is-unresolved" href="https://boot.netboot.xyz/ipxe/netboot.xyz-sha256-checksums.txt" target="_self">here</a>. You can also view the scripts that are embedded into the images <a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz/tree/master/ipxe/disks" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz/tree/master/ipxe/disks" target="_self">here</a>.</p></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="http://www.netboot.xyz/" rel="noopener nofollow" class="external-link is-unresolved" href="http://www.netboot.xyz/" target="_self">netboot.xyz</a> is a convenient place to boot into any type of operating system or utility disk without the need of having to go spend time retrieving the ISO just to run it. <a data-tooltip-position="top" aria-label="http://ipxe.org/" rel="noopener nofollow" class="external-link is-unresolved" href="http://ipxe.org/" target="_self">iPXE</a> is used to provide a user friendly menu from within the BIOS that lets you easily choose the operating system you want along with any specific types of versions or bootable flags.</p></div><div class="el-p"><p dir="auto">If you already have iPXE up and running on the network, you can hit netboot.xyz at anytime by typing for Legacy (PCBIOS) mode:</p></div><div class="el-pre"><pre><code data-line="0">chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">or when in UEFI mode:</p></div><div class="el-pre"><pre><code data-line="0">chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">You can also load using HTTPS, but by default builds of iPXE do not have HTTPS support compiled in. This will load the appropriate netboot.xyz kernel with all of the proper options enabled.</p></div><div class="el-h3"><h3 data-heading="Documentation" dir="auto" class="heading" id="Documentation_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Documentation</h3></div><div class="el-p"><p dir="auto">See <a data-tooltip-position="top" aria-label="https://netboot.xyz/" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/" target="_self">netboot.xyz</a> for all documentation. Some links to get started with are:</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://netboot.xyz/downloads/" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/downloads/" target="_self">Downloads</a></li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://netboot.xyz/docs/selfhosting/" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/docs/selfhosting/" target="_self">Self Hosting</a></li>
+<li data-line="2" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://netboot.xyz/docs/booting/ipxe" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/docs/booting/ipxe" target="_self">Booting Methods</a></li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://netboot.xyz/docs/faq" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/docs/faq" target="_self">FAQ</a></li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://netboot.xyz/blog" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/blog" target="_self">Blog</a></li>
+</ul></div><div class="el-p"><p dir="auto">If you'd like to contribute to the documentation, the netboot.xyz documentation is located at <a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz-docs" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz-docs" target="_self">netboot.xyz-docs</a>.</p></div><div class="el-p"><p dir="auto">For those users who want to deploy their own netboot.xyz environment, you can leverage the same scripts that are used to deploy the hosted environment. The source scripts are all Ansible templates and can be generated and customized to your preference.</p></div><div class="el-p"><p dir="auto">Please see the <a data-tooltip-position="top" aria-label="https://netboot.xyz/docs/selfhosting/" rel="noopener nofollow" class="external-link is-unresolved" href="https://netboot.xyz/docs/selfhosting/" target="_self">self-hosting docs</a> for more information but in short:</p></div><div class="el-p"><p dir="auto">To generate, run:</p></div><div class="el-pre"><pre><code data-line="0">ansible-playbook site.yml
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">The build output will be located in /var/www/html by default.</p></div><div class="el-pre"><pre><code data-line="0">docker build -t localbuild --platform=linux/amd64 -f Dockerfile .
+docker run --rm -it --platform=linux/amd64 -v $(pwd):/buildout localbuild
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre></div><div class="el-p"><p dir="auto">The build output will be in the generated folder <code>buildout</code></p></div><div class="el-h4"><h4 data-heading="Local Overrides" dir="auto" class="heading" id="Local_Overrides_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Local Overrides</h4></div><div class="el-p"><p dir="auto">Ansible will handle source generation as well as iPXE disk generation with your settings. It will generate Legacy (PCBIOS) and UEFI iPXE disks that can be used to load into your netboot.xyz environment. If you want to override the defaults, you can put overrides in user_overrides.yml. See <code>user_overrides.yml</code> for examples.</p></div><div class="el-p"><p dir="auto">Using the overrides file, you can override all of the settings from the defaults/main.yml so that you can easily change the boot mirror URLs when the menus are rendered. If you prefer to do this after the fact, you can also edit the boot.cfg to make changes, but keep in mind those changes will not be saved when you redeploy the menu.</p></div><div class="el-p"><p dir="auto">In addition to being able to host netboot.xyz locally, you can also create your own custom templates for custom menus within netboot.xyz. Please see <a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz/blob/development/etc/netbootxyz/custom/README.md" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz/blob/development/etc/netbootxyz/custom/README.md" target="_self">Custom User Menus</a> for more information.</p></div><div class="el-h4"><h4 data-heading="Operating Systems" dir="auto" class="heading" id="Operating_Systems_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Operating Systems</h4></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Name</th>
+<th dir="ltr">URL</th>
+<th dir="ltr">Installer Kernel</th>
+<th dir="ltr">Live OS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">AlmaLinux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://almalinux.org/" target="_self">https://almalinux.org/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Alpine Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://alpinelinux.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://alpinelinux.org/" target="_self">https://alpinelinux.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Arch Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.archlinux.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.archlinux.org/" target="_self">https://www.archlinux.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Backbox</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.backbox.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.backbox.org/" target="_self">https://www.backbox.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">BlackArch Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://blackarch.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://blackarch.org/" target="_self">https://blackarch.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Bluestar Linux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://sourceforge.net/projects/bluestarlinux" target="_self">https://sourceforge.net/projects/bluestarlinux</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Bodhi Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.bodhilinux.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.bodhilinux.com/" target="_self">https://www.bodhilinux.com</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">CachyOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://cachyos.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://cachyos.org/" target="_self">https://cachyos.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">CentOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://centos.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://centos.org/" target="_self">https://centos.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Debian</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://debian.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://debian.org/" target="_self">https://debian.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Devuan</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://devuan.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://devuan.org/" target="_self">https://devuan.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Elementary OS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://elementary.io/" rel="noopener nofollow" class="external-link is-unresolved" href="https://elementary.io/" target="_self">https://elementary.io</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">EndeavourOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://endeavouros.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://endeavouros.com/" target="_self">https://endeavouros.com</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Fatdog64</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://distro.ibiblio.org/fatdog/web/" target="_self">https://distro.ibiblio.org/fatdog/web/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Fedora</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://fedoraproject.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://fedoraproject.org/" target="_self">https://fedoraproject.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Fedora CoreOS</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://getfedora.org/en/coreos?stream=stable" target="_self">https://getfedora.org/en/coreos?stream=stable</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Feren OS</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://ferenos.weebly.com/" target="_self">https://ferenos.weebly.com/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Flatcar Container Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.flatcar.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.flatcar.org/" target="_self">https://www.flatcar.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">FreeBSD</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://freebsd.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://freebsd.org/" target="_self">https://freebsd.org</a></td>
+<td dir="ltr">Yes, disk image</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">FreeDOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.freedos.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.freedos.org/" target="_self">https://www.freedos.org</a></td>
+<td dir="ltr">ISO - Memdisk</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Garuda Linux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://garudalinux.org/" target="_self">https://garudalinux.org/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Gentoo</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://gentoo.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://gentoo.org/" target="_self">https://gentoo.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Harvester</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://harvesterhci.io/" rel="noopener nofollow" class="external-link is-unresolved" href="https://harvesterhci.io/" target="_self">https://harvesterhci.io</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">hrmpf</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/leahneukirchen/hrmpf/" target="_self">https://github.com/leahneukirchen/hrmpf/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">IPFire</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.ipfire.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.ipfire.org/" target="_self">https://www.ipfire.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">K3OS</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://k3os.io/" target="_self">https://k3os.io/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Kairos</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://kairos.io/" target="_self">https://kairos.io/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Kali Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.kali.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.kali.org/" target="_self">https://www.kali.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">KDE Neon</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://neon.kde.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://neon.kde.org/" target="_self">https://neon.kde.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Kodachi</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.digi77.com/linux-kodachi/" target="_self">https://www.digi77.com/linux-kodachi/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Linux Lite</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.linuxliteos.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.linuxliteos.com/" target="_self">https://www.linuxliteos.com</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">LXLE</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://lxle.net/" target="_self">https://lxle.net/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Mageia</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.mageia.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.mageia.org/" target="_self">https://www.mageia.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Manjaro</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://manjaro.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://manjaro.org/" target="_self">https://manjaro.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Mint</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://linuxmint.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://linuxmint.com/" target="_self">https://linuxmint.com</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Microsoft Windows</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.microsoft.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.microsoft.com/" target="_self">https://www.microsoft.com</a></td>
+<td dir="ltr">User supplied media</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">MirOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="http://www.mirbsd.org/" rel="noopener nofollow" class="external-link is-unresolved" href="http://www.mirbsd.org/" target="_self">http://www.mirbsd.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Nitrux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://nxos.org/" target="_self">https://nxos.org/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">NixOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://nixos.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://nixos.org/" target="_self">https://nixos.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">OpenBSD</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://openbsd.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://openbsd.org/" target="_self">https://openbsd.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">openEuler</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://openeuler.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://openeuler.org/" target="_self">https://openeuler.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">openSUSE</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://opensuse.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://opensuse.org/" target="_self">https://opensuse.org</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Oracle Linux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.oracle.com/linux/" target="_self">https://www.oracle.com/linux/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Installer</td>
+</tr>
+<tr>
+<td dir="ltr">Parrot Security</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.parrotsec.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.parrotsec.org/" target="_self">https://www.parrotsec.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Peppermint</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://peppermintos.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://peppermintos.com/" target="_self">https://peppermintos.com</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Pop OS</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://system76.com/pop" target="_self">https://system76.com/pop</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Proxmox Open Source Products</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.proxmox.com/" target="_self">https://www.proxmox.com/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Q4OS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://q4os.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://q4os.org/" target="_self">https://q4os.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Raizo</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://sourceforge.net/projects/live-raizo/" target="_self">https://sourceforge.net/projects/live-raizo/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Red Hat Enterprise Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.redhat.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.redhat.com/" target="_self">https://www.redhat.com</a></td>
+<td dir="ltr">User supplied media</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Regolith</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://regolith-linux.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://regolith-linux.org/" target="_self">https://regolith-linux.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Rocky Linux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://rockylinux.org/" target="_self">https://rockylinux.org/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Septor</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://septor.sourceforge.io/" rel="noopener nofollow" class="external-link is-unresolved" href="https://septor.sourceforge.io/" target="_self">https://septor.sourceforge.io</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Slackware</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.slackware.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.slackware.com/" target="_self">https://www.slackware.com</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">SmartOS</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.smartos.org/" target="_self">https://www.smartos.org/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">SparkyLinux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://sparkylinux.org/" target="_self">https://sparkylinux.org/</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Tails</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://tails.net/" rel="noopener nofollow" class="external-link is-unresolved" href="https://tails.net/" target="_self">https://tails.net</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Talos</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.talos.dev/" target="_self">https://www.talos.dev/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Tiny Core Linux</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://tinycorelinux.net/" rel="noopener nofollow" class="external-link is-unresolved" href="https://tinycorelinux.net/" target="_self">https://tinycorelinux.net</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Ubuntu</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.ubuntu.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.ubuntu.com/" target="_self">https://www.ubuntu.com</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">VMware</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.vmware.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.vmware.com/" target="_self">https://www.vmware.com</a></td>
+<td dir="ltr">User supplied media</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">VMware Photon</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://vmware.github.io/photon/" target="_self">https://vmware.github.io/photon/</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Vanilla OS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://vanillaos.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://vanillaos.org/" target="_self">https://vanillaos.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">Voyager</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://voyagerlive.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://voyagerlive.org/" target="_self">https://voyagerlive.org</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+<tr>
+<td dir="ltr">VyOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://vyos.io/" rel="noopener nofollow" class="external-link is-unresolved" href="https://vyos.io/" target="_self">https://vyos.io</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Zen Installer</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://sourceforge.net/projects/revenge-installer" target="_self">https://sourceforge.net/projects/revenge-installer</a></td>
+<td dir="ltr">Yes</td>
+<td dir="ltr">No</td>
+</tr>
+<tr>
+<td dir="ltr">Zorin OS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://zorin.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://zorin.com/" target="_self">https://zorin.com</a></td>
+<td dir="ltr">No</td>
+<td dir="ltr">Yes</td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Utilities" dir="auto" class="heading" id="Utilities_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Utilities</h3></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Name</th>
+<th dir="ltr">URL</th>
+<th dir="ltr">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">4MLinux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://4mlinux.com/" target="_self">https://4mlinux.com/</a></td>
+<td dir="ltr">Kernel/Initrd</td>
+</tr>
+<tr>
+<td dir="ltr">Boot Repair CD</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://sourceforge.net/projects/boot-repair-cd/" target="_self">https://sourceforge.net/projects/boot-repair-cd/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Breakin</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.advancedclustering.com/products/software/breakin/" target="_self">https://www.advancedclustering.com/products/software/breakin/</a></td>
+<td dir="ltr">Kernel/Initrd</td>
+</tr>
+<tr>
+<td dir="ltr">CAINE</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.caine-live.net/" target="_self">https://www.caine-live.net/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Clonezilla</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.clonezilla.org/" target="_self">https://www.clonezilla.org/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">DBAN</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.dban.org/" target="_self">https://www.dban.org/</a></td>
+<td dir="ltr">Kernel</td>
+</tr>
+<tr>
+<td dir="ltr">GParted</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://gparted.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://gparted.org/" target="_self">https://gparted.org</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Grml</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://grml.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://grml.org/" target="_self">https://grml.org</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Kaspersky Rescue Disk</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://support.kaspersky.com/krd18" target="_self">https://support.kaspersky.com/krd18</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Memtest</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.memtest.org/" target="_self">https://www.memtest.org/</a></td>
+<td dir="ltr">Kernel</td>
+</tr>
+<tr>
+<td dir="ltr">MemTest86 Free</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.memtest86.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.memtest86.com/" target="_self">https://www.memtest86.com</a></td>
+<td dir="ltr">USB Img</td>
+</tr>
+<tr>
+<td dir="ltr">Redo Rescue</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="http://redorescue.com/" target="_self">http://redorescue.com/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Rescatux</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://www.supergrubdisk.org/rescatux/" target="_self">https://www.supergrubdisk.org/rescatux/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Rescuezilla</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://rescuezilla.com/" target="_self">https://rescuezilla.com/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">ShredOS</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://github.com/PartialVolume/shredos.x86_64" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/PartialVolume/shredos.x86_64" target="_self">https://github.com/PartialVolume/shredos.x86_64</a></td>
+<td dir="ltr">Kernel</td>
+</tr>
+<tr>
+<td dir="ltr">Super Grub2 Disk</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.supergrubdisk.org/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.supergrubdisk.org/" target="_self">https://www.supergrubdisk.org</a></td>
+<td dir="ltr">ISO - Memdisk</td>
+</tr>
+<tr>
+<td dir="ltr">System Rescue</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://system-rescue.org/" target="_self">https://system-rescue.org/</a></td>
+<td dir="ltr">LiveCD</td>
+</tr>
+<tr>
+<td dir="ltr">Ultimate Boot CD</td>
+<td dir="ltr"><a data-tooltip-position="top" aria-label="https://www.ultimatebootcd.com/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.ultimatebootcd.com/" target="_self">https://www.ultimatebootcd.com</a></td>
+<td dir="ltr">ISO - Memdisk</td>
+</tr>
+<tr>
+<td dir="ltr">ZFSBootMenu</td>
+<td dir="ltr"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://docs.zfsbootmenu.org/" target="_self">https://docs.zfsbootmenu.org/</a></td>
+<td dir="ltr">Kernel</td>
+</tr>
+</tbody>
+</table></div><div class="el-h3"><h3 data-heading="Feedback" dir="auto" class="heading" id="Feedback_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Feedback</h3></div><div class="el-p"><p dir="auto">Feel free to open up an <a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz/issues" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz/issues" target="_self">issue</a> on Github or ping us on <a data-tooltip-position="top" aria-label="https://discord.gg/An6PA2a" rel="noopener nofollow" class="external-link is-unresolved" href="https://discord.gg/An6PA2a" target="_self">Discord</a>. Follow us on <a data-tooltip-position="top" aria-label="https://twitter.com/netbootxyz" rel="noopener nofollow" class="external-link is-unresolved" href="https://twitter.com/netbootxyz" target="_self">Twitter</a> and like us on <a data-tooltip-position="top" aria-label="https://www.facebook.com/netboot.xyz" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.facebook.com/netboot.xyz" target="_self">Facebook</a>!</p></div><div class="el-h2"><h2 data-heading="Releases 90" dir="auto" class="heading" id="Releases_90_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Releases 90</h2></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://github.com/netbootxyz/netboot.xyz/releases" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz/netboot.xyz/releases" target="_self">+ 89 releases</a></p></div><div class="el-h2"><h2 data-heading="Sponsor this project" dir="auto" class="heading" id="Sponsor_this_project_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Sponsor this project</h2></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://github.com/netbootxyz" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/netbootxyz" target="_self"><strong>netbootxyz</strong> netboot.xyz</a></li>
+<li data-line="1" dir="auto"><span class="list-bullet"></span><a data-tooltip-position="top" aria-label="https://opencollective.com/netbootxyz" rel="noopener nofollow" class="external-link is-unresolved" href="https://opencollective.com/netbootxyz" target="_self">opencollective.com/ <strong>netbootxyz</strong></a></li>
+</ul></div><div class="el-p"><p dir="auto"><a data-tooltip-position="top" aria-label="https://github.com/sponsors" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/sponsors" target="_self">Learn more about GitHub Sponsors</a></p></div><div class="footer"><div class="data-bar"></div></div></div></div></div><div id="right-content" class="leaf" style="--sidebar-width: var(--sidebar-width-right);"><div id="right-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme-toggle-input" id=""><input class="theme-toggle-input" type="checkbox" id="theme-toggle-input"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="right-sidebar-content" class="leaf-content"><div class="graph-view-wrapper"><div class="feature-header"><div class="feature-title">Interactive Graph</div></div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<div class="graph-icon graph-global" role="button" aria-label="Global Graph" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-git-fork"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"></path><path d="M12 12v3"></path></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div id="outline" class=" tree-container"><div class="feature-header"><div class="feature-title">Table Of Contents</div><button class="clickable-icon nav-action-button tree-collapse-all" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-item mod-collapsible" data-depth="1"><a class="tree-item-self is-clickable mod-collapsible" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#netbootxyz/netboot.xyz_Your_favorite_operating_systems_in_one_place._A_network-based_bootable_operating_system_installer_based_on_iPXE._0" data-path="#netbootxyz/netboot.xyz_Your_favorite_operating_systems_in_one_place._A_network-based_bootable_operating_system_installer_based_on_iPXE._0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="netbootxyz/netboot.xyz: Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE.">netbootxyz/netboot.xyz: Your favorite operating systems in one place.  A network-based bootable operating system installer based on iPXE.</div></a><div class="tree-item-children"><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#[netboot.xyz_-_A_network-based_bootable_operating_system_installer_based_on_iPXE](https//netboot.xyz/_&quot;https//netboot.xyz&quot;)_0" data-path="#[netboot.xyz_-_A_network-based_bootable_operating_system_installer_based_on_iPXE](https//netboot.xyz/_&quot;https//netboot.xyz&quot;)_0"><div class="tree-item-inner heading-link" heading-name="[netboot.xyz - A network-based bootable operating system installer based on iPXE](https://netboot.xyz/ &quot;https://netboot.xyz&quot;)"><span>netboot.xyz - A network-based bootable operating system installer based on iPXE</span></div></a><div class="tree-item-children"></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-item-self is-clickable mod-collapsible" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#netboot.xyz_0" data-path="#netboot.xyz_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="netboot.xyz">netboot.xyz</div></a><div class="tree-item-children"><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Bootloader_Downloads_0" data-path="#Bootloader_Downloads_0"><div class="tree-item-inner heading-link" heading-name="Bootloader Downloads">Bootloader Downloads</div></a><div class="tree-item-children"></div></div><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-item-self is-clickable mod-collapsible" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Documentation_0" data-path="#Documentation_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="Documentation">Documentation</div></a><div class="tree-item-children"><div class="tree-item" data-depth="4"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Local_Overrides_0" data-path="#Local_Overrides_0"><div class="tree-item-inner heading-link" heading-name="Local Overrides">Local Overrides</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Operating_Systems_0" data-path="#Operating_Systems_0"><div class="tree-item-inner heading-link" heading-name="Operating Systems">Operating Systems</div></a><div class="tree-item-children"></div></div></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Utilities_0" data-path="#Utilities_0"><div class="tree-item-inner heading-link" heading-name="Utilities">Utilities</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Feedback_0" data-path="#Feedback_0"><div class="tree-item-inner heading-link" heading-name="Feedback">Feedback</div></a><div class="tree-item-children"></div></div></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Releases_90_0" data-path="#Releases_90_0"><div class="tree-item-inner heading-link" heading-name="Releases 90">Releases 90</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="programming/netbootxyznetboot.xyz-your-favorite-operating-systems-in-one-place.-a-network-based-bootable-operating-system-installer-based-on-ipxe..html#Sponsor_this_project_0" data-path="#Sponsor_this_project_0"><div class="tree-item-inner heading-link" heading-name="Sponsor this project">Sponsor this project</div></a><div class="tree-item-children"></div></div></div></div></div></div></div><script defer="">let rs = document.querySelector("#right-sidebar"); rs.classList.toggle("is-collapsed", window.innerWidth < 768); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></div></div></body></html>

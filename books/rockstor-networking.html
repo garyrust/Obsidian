@@ -1,0 +1,439 @@
+<!DOCTYPE html> <html lang="en"><head>
+<title>Rockstor Networking</title>
+<base href="..">
+<meta name="pathname" content="books/rockstor-networking.html">
+<meta name="description" content="Obsidian Vault - Rockstor Networking">
+<meta property="og:title" content="Rockstor Networking">
+<meta property="og:description" content="Obsidian Vault - Rockstor Networking">
+<meta property="og:type" content="website">
+<meta property="og:url" content="books/rockstor-networking.html">
+<meta property="og:image" content="undefined">
+<meta charset="UTF-8"><meta property="og:site_name" content="Obsidian Vault"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="site-lib/rss.xml"><script async="" id="webpage-script" src="site-lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-wasm-script" src="site-lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="site-lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="site-lib/media/favicon.png"><link rel="stylesheet" href="site-lib/styles/obsidian.css"><link rel="preload" href="site-lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="site-lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/main-styles.css"></noscript><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-vertical-spacing:1.3em;--sidebar-margin:12px}:root{background-color:#202124}.sidebar{height:100%;font-size:14px;z-index:10;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));position:relative;overflow:hidden;overflow:clip;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}#left-sidebar{left:0}#right-sidebar{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}.sidebar.floating{position:absolute}.sidebar .leaf-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .leaf-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}#left-sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}#right-sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar #left-sidebar-content,.sidebar #right-sidebar-content{contain:none!important;container-type:normal!important;animation:none!important}.sidebar:has(.leaf-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:calc(2.3em + 2 * var(--sidebar-margin));width:var(--sidebar-width);padding:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}#left-sidebar .sidebar-topbar{left:0;flex-direction:row;border-top-right-radius:var(--radius-l)}#right-sidebar .sidebar-topbar{right:0;flex-direction:row-reverse;border-top-left-radius:var(--radius-l)}#left-sidebar .topbar-content{margin-right:calc(2.3em + var(--sidebar-margin));flex-direction:row}#right-sidebar .topbar-content{margin-left:calc(2.3em + var(--sidebar-margin));flex-direction:row-reverse}.topbar-content{overflow:hidden visible;overflow:clip visible;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:2px!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}#left-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}#right-sidebar .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.feature-title{margin-left:1px;text-transform:uppercase;letter-spacing:.06em;margin-top:.75em;margin-bottom:.75em}.feature-header{display:flex;align-items:center;padding-top:0;font-size:1em;padding-left:0}body.floating-sidebars .sidebar{position:absolute}body{transition:background-color var(--color-fade-speed) ease-in-out}#navbar:not(:empty){display:flex;align-items:center;justify-content:space-between;padding:.5em 1em;width:100%}#main{display:flex;flex-direction:column;height:100%;width:100%;align-items:stretch;justify-content:center}#main-horizontal{display:flex;flex-direction:row;flex-grow:1;width:100%;align-items:stretch;justify-content:center}#center-content{flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0!important;transition:opacity .2s ease-in-out;pointer-events:none}#center-content>.obsidian-document{padding-left:2em;padding-right:1em;margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}body #center-content>.obsidian-document>.markdown-preview-sizer{padding-bottom:80vh;width:100%;max-width:var(--line-width);flex-basis:var(--line-width);transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document>div{width:100%!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document:not([data-type=markdown]).embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}#center-content>.obsidian-document:not([data-type=markdown]).embed>*{max-width:100%;max-height:100%;object-fit:contain}:not(h1,h2,h3,h4,h5,h6,li):has(> :is(.math,table)){overflow-x:auto!important}#center-content>.obsidian-document:not([data-type=markdown]){overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.obsidian-document[data-type=attachment]{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%}.obsidian-document[data-type=attachment]>*{outline:0;border:none;box-shadow:none}.obsidian-document[data-type=attachment] :is(img){max-width:90%;max-height:90%;object-fit:contain}.obsidian-document[data-type=attachment]>:is(audio){width:100%;max-width:min(90%,var(--line-width))}.obsidian-document[data-type=attachment]>:is(embed,iframe,video){width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.canvas-wrapper>:is(.header,.footer){z-index:100;position:absolute;display:flex;justify-content:center;flex-direction:column;width:100%;align-items:center}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){let e=document.querySelectorAll("link[itemprop='include']");for(const t of e){let e=t.getAttribute("href");try{let o="";if(e.startsWith("https:")||e.startsWith("http:")||"file:"!=window.location.protocol){const n=await fetch(e);if(!n.ok){console.log("Could not include file: "+e),t?.remove();continue}o=await n.text()}else{const t=document.getElementById(btoa(encodeURI(e)));if(t){const e=JSON.parse(decodeURI(atob(t.getAttribute("value")??"")));o=e?.data??""}}let n=document.createRange().createContextualFragment(o);t.before(n),t.remove(),console.log("Included text: "+o),console.log("Included file: "+e)}catch(o){t?.remove(),console.log("Could not include file: "+e,o);continue}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script")));!function e(n){let l=o[n],c=n+1;l?(l&&"true"!=l.getAttribute("loaded")||n<o.length&&e(c),n<o.length&&l.addEventListener("load",(()=>e(c)))):n<o.length?e(c):t()}(0)}</script></head><body class="publish css-settings-manager styled-scrollbars show-inline-title show-ribbon is-focused"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="parsed-feature-container" style="display: contents;"><link itemprop="include" href="site-lib/html/custom-head-content-content.html"></div><div id="main"><div id="navbar"></div><div id="main-horizontal"><div id="left-content" class="leaf" style="--sidebar-width: var(--sidebar-width-left);"><div id="left-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><div id="search-container"><div id="search-wrapper"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div aria-label="Clear search" id="search-clear-button"></div></div></div></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="left-sidebar-content" class="leaf-content"><link itemprop="include" href="site-lib/html/file-tree-content.html"></div></div><script defer="">let ls = document.querySelector("#left-sidebar"); ls.classList.toggle("is-collapsed", window.innerWidth < 768); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div></div><div id="center-content" class="leaf"><div class="obsidian-document markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings allow-fold-lists show-indentation-guide show-properties" data-type="markdown"><style id="MJX-CHTML-styles">mjx-c.mjx-c1D446.TEX-I::before{padding:.705em .645em .022em 0;content:"S"}mjx-c.mjx-c1D440.TEX-I::before{padding:.683em 1.051em 0 0;content:"M"}mjx-c.mjx-c38::before{padding:.666em .5em .022em 0;content:"8"}mjx-c.mjx-c34::before{padding:.677em .5em 0 0;content:"4"}mjx-c.mjx-c37::before{padding:.676em .5em .022em 0;content:"7"}mjx-c.mjx-c35::before{padding:.666em .5em .022em 0;content:"5"}mjx-container[jax=CHTML]{line-height:0}mjx-container [space="1"]{margin-left:.111em}mjx-container [space="2"]{margin-left:.167em}mjx-container [space="3"]{margin-left:.222em}mjx-container [space="4"]{margin-left:.278em}mjx-container [space="5"]{margin-left:.333em}mjx-container [rspace="1"]{margin-right:.111em}mjx-container [rspace="2"]{margin-right:.167em}mjx-container [rspace="3"]{margin-right:.222em}mjx-container [rspace="4"]{margin-right:.278em}mjx-container [rspace="5"]{margin-right:.333em}mjx-container [size="s"]{font-size:70.7%}mjx-container [size=ss]{font-size:50%}mjx-container [size=Tn]{font-size:60%}mjx-container [size=sm]{font-size:85%}mjx-container [size=lg]{font-size:120%}mjx-container [size=Lg]{font-size:144%}mjx-container [size=LG]{font-size:173%}mjx-container [size=hg]{font-size:207%}mjx-container [size=HG]{font-size:249%}mjx-container [width=full]{width:100%}mjx-box{display:inline-block}mjx-block{display:block}mjx-itable{display:inline-table}mjx-row{display:table-row}mjx-row>*{display:table-cell}mjx-mtext{display:inline-block}mjx-mstyle{display:inline-block}mjx-merror{display:inline-block;color:red;background-color:#ff0}mjx-mphantom{visibility:hidden}mjx-assistive-mml{top:0;left:0;clip:rect(1px,1px,1px,1px);user-select:none;position:absolute!important;padding:1px 0 0!important;border:0!important;display:block!important;width:auto!important;overflow:hidden!important}mjx-assistive-mml[display=block]{width:100%!important}mjx-math{display:inline-block;text-align:left;line-height:0;text-indent:0;font-style:normal;font-weight:400;font-size:100%;font-size-adjust:none;letter-spacing:normal;border-collapse:collapse;overflow-wrap:normal;word-spacing:normal;white-space:nowrap;direction:ltr;padding:1px 0}mjx-container[jax=CHTML][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=CHTML][display=true][width=full]{display:flex}mjx-container[jax=CHTML][display=true] mjx-math{padding:0}mjx-container[jax=CHTML][justify=left]{text-align:left}mjx-container[jax=CHTML][justify=right]{text-align:right}mjx-mi{display:inline-block;text-align:left}mjx-c{display:inline-block}mjx-utext{display:inline-block;padding:.75em 0 .2em}mjx-mn{display:inline-block;text-align:left}mjx-c::before{display:block;width:0}.MJX-TEX{font-family:MJXZERO,MJXTEX}.TEX-B{font-family:MJXZERO,MJXTEX-B}.TEX-I{font-family:MJXZERO,MJXTEX-I}.TEX-MI{font-family:MJXZERO,MJXTEX-MI}.TEX-BI{font-family:MJXZERO,MJXTEX-BI}.TEX-S1{font-family:MJXZERO,MJXTEX-S1}.TEX-S2{font-family:MJXZERO,MJXTEX-S2}.TEX-S3{font-family:MJXZERO,MJXTEX-S3}.TEX-S4{font-family:MJXZERO,MJXTEX-S4}.TEX-A{font-family:MJXZERO,MJXTEX-A}.TEX-C{font-family:MJXZERO,MJXTEX-C}.TEX-CB{font-family:MJXZERO,MJXTEX-CB}.TEX-FR{font-family:MJXZERO,MJXTEX-FR}.TEX-FRB{font-family:MJXZERO,MJXTEX-FRB}.TEX-SS{font-family:MJXZERO,MJXTEX-SS}.TEX-SSB{font-family:MJXZERO,MJXTEX-SSB}.TEX-SSI{font-family:MJXZERO,MJXTEX-SSI}.TEX-SC{font-family:MJXZERO,MJXTEX-SC}.TEX-T{font-family:MJXZERO,MJXTEX-T}.TEX-V{font-family:MJXZERO,MJXTEX-V}.TEX-VB{font-family:MJXZERO,MJXTEX-VB}mjx-stretchy-h mjx-c,mjx-stretchy-v mjx-c{font-family:MJXZERO,MJXTEX-S1,MJXTEX-S4,MJXTEX,MJXTEX-A!important}@font-face{font-family:MJXZERO;src:url("site-lib/fonts/mathjax_zero.woff") format("woff")}@font-face{font-family:MJXTEX;src:url("site-lib/fonts/mathjax_main-regular.woff") format("woff")}@font-face{font-family:MJXTEX-B;src:url("site-lib/fonts/mathjax_main-bold.woff") format("woff")}@font-face{font-family:MJXTEX-I;src:url("site-lib/fonts/mathjax_math-italic.woff") format("woff")}@font-face{font-family:MJXTEX-MI;src:url("site-lib/fonts/mathjax_main-italic.woff") format("woff")}@font-face{font-family:MJXTEX-BI;src:url("site-lib/fonts/mathjax_math-bolditalic.woff") format("woff")}@font-face{font-family:MJXTEX-S1;src:url("site-lib/fonts/mathjax_size1-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S2;src:url("site-lib/fonts/mathjax_size2-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S3;src:url("site-lib/fonts/mathjax_size3-regular.woff") format("woff")}@font-face{font-family:MJXTEX-S4;src:url("site-lib/fonts/mathjax_size4-regular.woff") format("woff")}@font-face{font-family:MJXTEX-A;src:url("site-lib/fonts/mathjax_ams-regular.woff") format("woff")}@font-face{font-family:MJXTEX-C;src:url("site-lib/fonts/mathjax_calligraphic-regular.woff") format("woff")}@font-face{font-family:MJXTEX-CB;src:url("site-lib/fonts/mathjax_calligraphic-bold.woff") format("woff")}@font-face{font-family:MJXTEX-FR;src:url("site-lib/fonts/mathjax_fraktur-regular.woff") format("woff")}@font-face{font-family:MJXTEX-FRB;src:url("site-lib/fonts/mathjax_fraktur-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SS;src:url("site-lib/fonts/mathjax_sansserif-regular.woff") format("woff")}@font-face{font-family:MJXTEX-SSB;src:url("site-lib/fonts/mathjax_sansserif-bold.woff") format("woff")}@font-face{font-family:MJXTEX-SSI;src:url("site-lib/fonts/mathjax_sansserif-italic.woff") format("woff")}@font-face{font-family:MJXTEX-SC;src:url("site-lib/fonts/mathjax_script-regular.woff") format("woff")}@font-face{font-family:MJXTEX-T;src:url("site-lib/fonts/mathjax_typewriter-regular.woff") format("woff")}@font-face{font-family:MJXTEX-V;src:url("site-lib/fonts/mathjax_vector-regular.woff") format("woff")}@font-face{font-family:MJXTEX-VB;src:url("site-lib/fonts/mathjax_vector-bold.woff") format("woff")}mjx-c.mjx-c1D44E.TEX-I::before{padding:.441em .529em .01em 0;content:"a"}mjx-c.mjx-c1D45D.TEX-I::before{padding:.442em .503em .194em 0;content:"p"}mjx-c.mjx-c1D45F.TEX-I::before{padding:.442em .451em .011em 0;content:"r"}mjx-c.mjx-c31::before{padding:.666em .5em 0 0;content:"1"}</style><div class="markdown-preview-sizer markdown-preview-section"><div class="header"><h1 class="page-title heading inline-title" id="Rockstor_Networking_0">Rockstor Networking</h1><div class="data-bar"></div></div><div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div><div class="el-p"><p dir="auto"><a rel="noopener nofollow" class="external-link is-unresolved" href="https://tinyurl.com/bddt3fa5" target="_self">https://tinyurl.com/bddt3fa5</a> on google AI</p></div><div class="el-p"><p dir="auto">I will upload <a data-tooltip-position="top" aria-label="http://n6xre.cloud:8090/dokuwiki/pdf/Rockstor_Networking.pdf" rel="noopener nofollow" class="external-link is-unresolved" href="http://n6xre.cloud:8090/dokuwiki/pdf/Rockstor_Networking.pdf" target="_self">Rockstor_Networking.pdf</a> to<br>
+<a class="internal-link" data-href="BOOKS-Links.md" href="books/books-links.html" target="_self" rel="noopener nofollow">BOOKS-Links</a> - in PDF Documents</p></div><div class="el-p"><p dir="auto">Is this 2.5 gb ethernet - Device-2: Realtek<br>
+RTL8111/8168/8211/8411 PCI Express Gigabit Ethern... \</p></div><div class="el-p"><p dir="auto">No, neither of these devices is a 2.5 Gb Ethernet adapter. They are both Gigabit<br>
+Ethernet (1 Gbps) controllers.</p></div><div class="el-p"><p dir="auto">$41.56<br>
+= Walmart - Feilan Ltd</p></div><div class="el-p"><p dir="auto">This is a standard Gigabit (1000 Mbps) controller. The "2.5 GT/s" you see in the PCle info<br>
+refers to the bus transfer speed of the PCI Express Gen 1x slot it's plugged into, not the<br>
+network speed. Your current link state confirms it is running at its maximum of 1000<br>
+Mbps [User Snippet].</p></div><div class="el-p"><p dir="auto">A</p></div><div class="el-p"><p dir="auto">"“e $15.99<br>
+eBay - eshopseller666</p></div><div class="el-p"><p dir="auto">5.0 ek koe (1)</p></div><div class="el-p"><p dir="auto">This is a USB 3.0 to Gigabit (1000 Mbps) Ethernet chip. While the USB 3.0 interface<br>
+itself supports up to 5 Gb/s, the actual network port is limited to 1 Gbps. 2</p></div><div class="el-p"><p dir="auto">Summarv of Capabilities:</p></div><div class="el-p"><p dir="auto">Ask anything</p></div><div class="el-p"><p dir="auto">fb</p></div><div class="el-p"><p dir="auto">y</p></div><div class="el-p"><p dir="auto">Are you trying to upgrade your network speed to 2.5 Gb, and if so, do you already have a<br>
+2.5 Gb switch or router to support it?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">yes. no router yet.</p></div><div class="el-p"><p dir="auto">Upgrading to 2.5 Gb Ethernet is a solid move for future-proofing, but as your current<br>
+logs show, your hardware is still capping you at 1 Gbps. Since you don't have a 2.5G<br>
+router yet, you'll need to upgrade a few specific components to actually see those<br>
+speeds. 2</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">Upgrade Your PC (The "Bottleneck" in your logs)</li>
+</ol></div><div class="el-p"><p dir="auto">The F 8 in your list is strictly a 1 Gbps card. To hit 2.5 Gb, you need a new<br>
+PCle Network Interface Card (NIC). ¢</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>Best Value Option: The TP-Link TX201 is a popular, affordable 2.5G PCle card (~$30)<br>
+that uses the newer Realtek RTL8125 chipset.</p>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>
+<p>Alternative: If you have an extra USB 3.0 port and don't want to open your PC, look for<br>
+a USB-to-2.5G Ethernet Adapter. Note that these can sometimes be less stable than<br>
+adedicated PCle card. #</p>
+</li>
+</ul></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">Choose a 2.5G Router or Switch ¢<br>
+To connect your devices at 2.5G speeds, your "hub" must also support it. @</li>
+</ol></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>The Budget Path (Switch): If you already have a1 Gb router and don't want to replace<br>
+it yet, buy a cheap 2.5G Unmanaged Switch like the TP-Link TL-SG105-M2 (~$60).<br>
+Plug the 2.5G switch into your current router, then plug your 2.5G-capable PC into the<br>
+switch. Devices on the switch can talk to each other at 2.5 Gb.</li>
+</ul></div><div class="el-p"><p dir="auto">The Full Upgrade (Router): If you're ready for a new router, look for models with 2.5G<br>
+WAN and LAN ports.</p></div><div class="el-p"><p dir="auto">© WiFi 7 Value: (-$100-120).</p></div><div class="el-p"><p dir="auto">© Gaming/Performance: Asus RT-BE82U or TP-Link Archer AX55 Pro. #</p></div><div class="el-p"><p dir="auto">TP-Link Archer BE230 ASUS RT-BE82U Archer Ax55 Pro</p></div><div class="el-p"><p dir="auto">Wi-Fi 7 Router BE6500 Wireless Dua... Ax3000 WiFi 6 Router...<br>
+$139.99 $169.99 $199:99 $119.99</p></div><div class="el-p"><p dir="auto">48 ek kk (1.1K) AT te tee te (231) AT te oe ee (4.3K)</p></div><div class="el-ol"><ol start="3">
+<li data-line="0" dir="auto">Check Your Cables</li>
+</ol></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Cat5e is technically enough for 2.5G over typical home distances.</li>
+</ul></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Cat6 is recommended if you're buying new cables or running longer lines to ensure<br>
+maximum stability.</li>
+</ul></div><div class="el-p"><p dir="auto">These guides and forum discussions explain how to upgrade your PC and network<br>
+hardware for 2.5 Gb Ethernet speeds:</p></div><div class="el-p"><p dir="auto">Supercharge Your Network:<br>
+Upgrade to 2.5GbE in 3 Easy...</p></div><div class="el-p"><p dir="auto">Jun 10, 2025 — where upgrading is a<br>
+benefit. and actually some situatio.</p></div><div class="el-p"><p dir="auto">@ YouTube - Gary Explains © Reddit i</p></div><div class="el-p"><p dir="auto">Upgrading to 2.5 gigabit<br>
+internet : r/HomeNetworking ...</p></div><div class="el-p"><p dir="auto">Jun 4, 2025 — Can't imagine they<br>
+would give me equipment that</p></div><div class="el-p"><p dir="auto">Next Step: Are you planning to use this 2.5G speed primarily for faster internet (i.e., you<br>
+have a multi-gig ISP plan) or for moving large files between computers on your local<br>
+network (like a NAS)? 2</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">moving large files between computers on your local<br>
+network (like a NAS)</p></div><div class="el-p"><p dir="auto">Moving large files locally is the best reason to upgrade to 2.5 Gb Ethernet, as it<br>
+increases your real-world transfer speeds from ~T10 MBis to roughly 280 MB/s.</p></div><div class="el-p"><p dir="auto">Since you already have a PC with a 1 Gbps port and a NAS, here is the most efficient way<br>
+to set up your high-speed “fast lane" without needing a new router:</p></div><div class="el-p"><p dir="auto">. Hardware Needed for 2.5 Gb Local Transfers ¢</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>The Switch: Instead of a router, get a dedicated 2.5 Gb unmanaged switch.<br>
+Affordable options include the TP-Link TL-SG105-M2 ($50}-erthe- Grandstream<br>
+GWNFFOGM{$38).</p>
+</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>
+<p>The PC Card: Since your current Realtek port is only 1 Gbps, you'll need a 2.5 Gb PCle<br>
+card like the TP-Link TX201 (~$27) for your desktop.</p>
+</li>
+<li data-line="7" dir="auto"><span class="list-bullet"></span>
+<p>The NAS Port: Ensure your NAS has a 2.5 Gb port. Many newer models like the<br>
+come with them built-in. If your NAS only has 1Gb, you may be able<br>
+to use a USB-to-2.5G adapter (common for Synology or QNAP systems) to bypass<br>
+the limit. &amp;</p>
+</li>
+</ul></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">The Setup (No Router Required)</li>
+</ol></div><div class="el-p"><p dir="auto">. Connect your existing router to one port on the new 2.5G Switch. This provides<br>
+internet to everything on the switch.</p></div><div class="el-p"><p dir="auto">v</p></div><div class="el-p"><p dir="auto">Plug your PC (with the new 2.5G card) and your NAS into the other ports on the<br>
+2.5G Switch.</p></div><div class="el-p"><p dir="auto">bod</p></div><div class="el-p"><p dir="auto">Result: When you move files between the PC and NAS, the data stays on the 2.54<br>
+switch and never touches your 1G router. You will get the full 2.5 Gb speed for local<br>
+transfers while still having internet access. ¢</p></div><div class="el-ol"><ol start="3">
+<li data-line="0" dir="auto">Critical Performance Check: Drive Speed</li>
+</ol></div><div class="el-p"><p dir="auto">At 2.5 Gbps, your hard drives become the primary factor.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Mechanical HDDs: A single modern 7200RPM hard drive typically reads/writes at<br>
+150-200 MB/s, which is faster than 1 Gbps but still won't fully saturate a 2.5 Gbps line.</li>
+</ul></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>SSDs: To hit the absolute maximum of 280+ MB/s, your NAS needs an SSD cache or<br>
+anall-flash setup. 2</li>
+</ul></div><div class="el-p"><p dir="auto">Explore how to boost local file transfer speeds using 2.5 Gb Ethernet switches and<br>
+network cards, and consider drive speeds as a key performance factor.</p></div><div class="el-p"><p dir="auto">How to Get the Best Transfer [SOLVED] - 2 computers 1 nas | Tom's</p></div><div class="el-p"><p dir="auto">Speeds from Your NAS Device Hardware Forum</p></div><div class="el-p"><p dir="auto">‘Aug 14, 2023 — Most consumer Sep 17, 2020 — gggplaya said: I don't think youneed &gt;<br>
+devices do not support 10 GbE. he 10Gbe because the hard drives will ikely be the.</p></div><div class="el-p"><p dir="auto">@ How-ToGeek } T Tom'sHardware</p></div><div class="el-p"><p dir="auto">Next Step: Do you already have a NAS, or are you looking for recommendations for one<br>
+that natively supports 2.5 Gb speeds?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">I have two ASUSTOR AS5202T NASes. Each has two<br>
+2.5 Gb Eithernet. Can | or Should | Agregate. They...</p></div><div class="el-p"><p dir="auto">You can technically aggregate the two 2.5 Gb Ethernet ports on your Asustor AS5202T<br>
+NAS units, but given that they have mechanical hard drives and you want to move large</p></div><div class="el-p"><p dir="auto">files, you should not use traditional link aggregation (LACP) if you primarily access the</p></div><div class="el-p"><p dir="auto">NAS from a single computer. Instead, you should use SMB Multichannel. ¢</p></div><div class="el-p"><p dir="auto">Why Link Aggregation (LACP) is not ideal for your use case</p></div><div class="el-p"><p dir="auto">Traditional link aggregation (using a managed switch that supports LACP) is designed for<br>
+multi-user environments, not single clients.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>Single Client Bottleneck: With LACP, a single file transfer (session) is still limited to<br>
+the speed of a single link, which is 2.5 Gbps (~280 MB/s). You won't get the combined<br>
+5 Gbps speed (~560 MB/s) for one large file transfer.</p>
+</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>
+<p>Mechanical HDD Limit: The main issue is that a single mechanical hard disk drive<br>
+often has a real-world maximum transfer rate of around 150-200 MB/s anyway, which<br>
+means even a single 2.5 Gbps link is likely sufficient and may not even be fully utilized.<br>
+The drives will be your primary bottleneck before the networkis.</p>
+</li>
+</ul></div><div class="el-p"><p dir="auto">The Recommended Solution: SMB Multichannel 2</p></div><div class="el-p"><p dir="auto">Asustor NAS devices support SMB Multichannel, which allows a single client to use both<br>
+Ethernet ports simultaneously over multiple TCP connections, effectively achieving higher<br>
+speeds for a single file transfer.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>How it Works: SMB Multichannel is a feature of the SMB protocol (used by Windows<br>
+and modern macOS) that allows a client to use multiple network connections to a<br>
+single server (your NAS).</p>
+</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>
+<p>Setup: The best part is that it often doesn't require a special managed switch. You just<br>
+need to connect both 2.5 Gb ports on the NAS to your (currently 1 Gbps) switch, or<br>
+even better, a new 2.5 GbE or multi-gig switch, and ensure SMB Multichannel is<br>
+enabled in the NAS settings.</p>
+</li>
+<li data-line="9" dir="auto"><span class="list-bullet"></span>
+<p>Benefit: This allows a single client computer (once upgraded with a 2.5 GbE NIC, as<br>
+discussed previously) to potentially utilize the full combined bandwidth of both ports,<br>
+although you'll still be limited by the mechanical drive speeds. 2</p>
+</li>
+</ul></div><div class="el-p"><p dir="auto">Summary</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">Do not use LACP Link Aggregation for single-client speed improvements.</li>
+</ol></div><div class="el-p"><p dir="auto">2, Enable SMB Multichannel in your Asustor ADM settings for the best potential single-<br>
+client performance with large files.</p></div><div class="el-ol"><ol start="3">
+<li data-line="0" dir="auto">Upgrade your PC's Ethernet to 2.5 GbE (or higher) to take advantage of the NAS's<br>
+ports.</li>
+</ol></div><div class="el-p"><p dir="auto">4, Consider a multi-gig switch to connect everything at 2.5 Gb speeds or higher. ¢</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">My NASes use Rockstor on NFS</p></div><div class="el-p"><p dir="auto">If you are running Rockstor (Linux-based) and using NFS for file sharing, the rules<br>
+change significantly compared to standard Asustor firmware.</p></div><div class="el-p"><p dir="auto">The Short Answer</p></div><div class="el-p"><p dir="auto">No, do not aggregate (LACP/Bonding) if your goal is to speed up a single file transfer to<br>
+one PC. Yes, aggregate if you want redundancy or have multiple devices hitting the NAS<br>
+atonce. @</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">The NFS Limitation</li>
+</ol></div><div class="el-p"><p dir="auto">Unlike SMB, NFS (v3 and v4.1) does not support "Multichannel" easily for a single<br>
+client. ¢</p></div><div class="el-p"><p dir="auto">Bonding/LACP: Even if you bond the two 2.5G ports on your NAS, a single NFS<br>
+transfer between your PC and the NAS will still stay on a single 2.5G path. It will not<br>
+combine to 5G for one file Red Hat Customer Portal - Bonding.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>The Drive Bottleneck: Since you have mechanical HDDs, a single 2.5G link (280<br>
+MB/s) is already faster than what a single HDD can usually provide (150-200 MBI).<br>
+Even in a RAID mirror, your drives will likely "max out" before the 2.5G network<br>
+does. ¢</li>
+</ul></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">How to use both ports with Rockstor</li>
+</ol></div><div class="el-p"><p dir="auto">Since you are using Rockstor (based on openSUSE), you have two main options for those<br>
+dual ports:</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Option A: Active-Backup (Redundancy)<br>
+If one cable fails or one port on your future switch dies, the NAS stays online. This<br>
+doesn't increase speed, but it increases reliability. You can set this up in the Rockstor<br>
+WebUI under the Network tab.</li>
+</ul></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Option B: Separate Networks (Isolation)<br>
+You could put one 2.5G port on a dedicated "Storage Network" (just for backups<br>
+between the two NASes) and the other on your "Home Network" (for your PC). This<br>
+ensures that if you are syncing files between the two AS5202T units, it doesn't slow<br>
+down your PC's access.</li>
+</ul></div><div class="el-ol"><ol start="3">
+<li data-line="0" dir="auto">
+<p>The Better Way to Speed Up NFS<br>
+If you want the fastest performance on Rockstor with NFS:</p>
+</li>
+<li data-line="3" dir="auto">
+<p>Skip Bonding: It adds complexity (and requires a managed switch) for almost no gain<br>
+in your specific setup.</p>
+</li>
+<li data-line="6" dir="auto">
+<p>Enable Jumbo Frames: If your future 2.5G switch and your PC support it, set MTU to<br>
+9000 on both the NAS and PC. This reduces CPU overhead and can squeeze more<br>
+performance out of mechanical drives over NFS.</p>
+</li>
+<li data-line="10" dir="auto">
+<p>Optimize Export Options: In Rockstor, ensure your NFS exports use async if you<br>
+value speed over absolute data safety during a power outage, or use sync with an<br>
+SSD cache (Log device). ¢</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">Summary for your AS5202T: Since your drives are the bottleneck and NFS doesn't<br>
+"stripe" across links like SMB Multichannel does, keep it simple. Use one 2.5G port for<br>
+your main traffic and use the second port only if you want a dedicated “sync link" directly<br>
+between the two NASes.</p></div><div class="el-p"><p dir="auto">Next Step: Are you planning to sync data between the two NAS units (e.g., for backup),<br>
+or is each one serving different files to your PC?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">sync data between the two NAS units</p></div><div class="el-p"><p dir="auto">Since you are syncing between two AS5202T units running Rockstor, you have a unique<br>
+opportunity to create a "High-Speed Syne Tunnel” that bypasses your main network<br>
+traffic entirely.</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">The "Direct-Connect" Strategy (No Switch Needed)</li>
+</ol></div><div class="el-p"><p dir="auto">Because you have two ports on each NAS, you can use one port for your regular network<br>
+and the second port for a direct 2.5 Gb connection between the two units.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>Physical Connection: Plug a Caté cable directly from Port 2 of NAS-A into Port 2 of<br>
+NAS-B.</p>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>
+<p>IP Configuration: Assign these ports a different static IP subnet (e.g., 10.0.0.1 and<br>
+10.0.0.2).</p>
+</li>
+</ul></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>The Benefit: When you run your sync (via rsync, btrfs send/receive , or<br>
+Rockstor’s replication), point the destination to the 10.0.0.x address. The data will fly<br>
+across that dedicated 2.5G cable without eating up bandwidth on your main<br>
+router/switch or affecting your PC’s internet speed.</li>
+</ul></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">Why not "Aggregate" here?</li>
+</ol></div><div class="el-p"><p dir="auto">Aggregation (Bonding) is overkill for this for two reasons:</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">
+<p>Complexity: LACP bonding usually requires a managed switch. A direct cable is free<br>
+and faster to set up.</p>
+</li>
+<li data-line="3" dir="auto">
+<p>The HDD Bottleneck: Your mechanical drives are the speed limit. A single 2.5G port<br>
+handles ~280 MB/s. Most mechanical drives in a NAS top out at ~180-220 MB/s. Adding<br>
+a second 2.56 link (to make 5G) won't make the physical spinning platters move data<br>
+any faster.</p>
+</li>
+<li data-line="8" dir="auto">
+<p>Making the Sync Faster on Rockstor</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">Since Rockstor uses BTRFS, don't just use standard tools. Use the power of the<br>
+filesystem:</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>BTRFS Send/Receive: If you are syncing entire shares, this is significantly faster than<br>
+rsync because it only sends the changed blocks at the filesystem level. You can set<br>
+this up through the Rockstor Replication tool.</p>
+</li>
+<li data-line="4" dir="auto"><span class="list-bullet"></span>
+<p>Compression: Ensure Zstd compression is enabled on your shares. It reduces the<br>
+amount of data that actually needs to be written to the mechanical disks, often making<br>
+the sync feel faster than the network limit.</p>
+</li>
+</ul></div><div class="el-ol"><ol start="4">
+<li data-line="0" dir="auto">Summary Recommendation</li>
+</ol></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Don't Aggregate. It won't help your mechanical drive speeds.</li>
+</ul></div><div class="el-p"><p dir="auto">irect Connect Port 2 to Port 2. Use a dedicated cable between the NASes for a<br>
+"clean" 2.5G sync path.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Use BTRFS Replication. Use the native Rockstor tools to move data over that<br>
+dedicated link.</li>
+</ul></div><div class="el-p"><p dir="auto">Next Step: Do you need help with the specific Rockstor CLI or WebUI commands to set</p></div><div class="el-p"><p dir="auto">up that dedicated second network interface?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">yes</p></div><div class="el-p"><p dir="auto">To set up the Direct-Connect Sync Tunnel (Port 2 to Port 2) in Rockstor, follow these<br>
+steps. This ensures your heavy sync traffic stays off your main network.</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">Identify the Interfaces</li>
+</ol></div><div class="el-p"><p dir="auto">In the Rockstor WebUI, go to System &gt; Network.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>Port 1: Should already be connected to your router/switch (e.g., eth or enpis0).<br>
+Leave this alone.</p>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>
+<p>Port 2: This is the second 2.5 Gb port (€.g., eth1 or enp2sé ). It should show as<br>
+"Disconnected" until you plug the cable directly between the two NAS units.</p>
+</li>
+</ul></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">Configure Static IPs (The "Sync Lane")</li>
+</ol></div><div class="el-p"><p dir="auto">You must give these ports IPs on a different subnet than your home network (if your<br>
+home is 192.168.1.x, use 10.0.0.x).</p></div><div class="el-p"><p dir="auto">On NAS-A:</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">
+<p>Click the Edit (pencil) icon next to the second interface.</p>
+</li>
+<li data-line="1" dir="auto">
+<p>Set IPv4 Configuration to Static.</p>
+</li>
+<li data-line="3" dir="auto">
+<p>IP Address: 10.0.0.1</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">4, Netmask: 255.255.255.0</p></div><div class="el-p"><p dir="auto">5, Gateway: Leave Blank (Crucial: Adding a gateway here will break your internet<br>
+access).</p></div><div class="el-ol"><ol start="6">
+<li data-line="0" dir="auto">
+<p>Save/Submit.<br>
+On NAS-B:</p>
+</li>
+<li data-line="3" dir="auto">
+<p>Repeat the steps for the second interface.</p>
+</li>
+<li data-line="4" dir="auto">
+<p>IP Address: 10.0.0.2</p>
+</li>
+<li data-line="5" dir="auto">
+<p>Netmask: 255.255.255.0</p>
+</li>
+<li data-line="7" dir="auto">
+<p>Gateway: Leave Blank.</p>
+</li>
+<li data-line="9" dir="auto">
+<p>Verify the Connection</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">Go to System &gt; Dashboard or use the Shell on one NAS and try to ping the other:</p></div><div class="el-p"><p dir="auto">bash</p></div><div class="el-p"><p dir="auto">ping 10.0.0.2</p></div><div class="el-p"><p dir="auto">Use code with caution, oO</p></div><div class="el-p"><p dir="auto">If you get a response, you now have a dedicated 2.5 Gbps “private” wire between<br>
+them.</p></div><div class="el-ol"><ol start="4">
+<li data-line="0" dir="auto">Configure the Sync (Replication)</li>
+</ol></div><div class="el-p"><p dir="auto">When setting up your syne, use the new "Private" IP:</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>Rockstor Replication: When adding a Replication Appliance in the WebUI, use the IP<br>
+10.0.0.2 (or .1) instead of the main network IP.</p>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>
+<p>Rsyne: If using scripts, use rsync -avz /source/<br>
+<a data-tooltip-position="top" aria-label="mailto:user@10.0.0.2" rel="noopener nofollow" class="external-link is-unresolved" href="mailto:user@10.0.0.2" target="_self">user@10.0.0.2</a>:/destination/ .<br>
+Why this beats "Aggregation":</p>
+</li>
+<li data-line="7" dir="auto"><span class="list-bullet"></span>
+<p>Efficiency: It completely bypasses your router's CPU.</p>
+</li>
+</ul></div><div class="el-p"><p dir="auto">Simplicity: No need for a managed switch or complex LACP (802.3ad) bonding<br>
+configuration in Linux.</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Speed: Since it's a direct 2.5 Gb link, it's already faster than your mechanical HDDs<br>
+can read or write (~20OMB/s vs the link's ~28O0MB/s).</li>
+</ul></div><div class="el-p"><p dir="auto">‘Smart Strategy: Since you are using Rockstor, ensure your BTRFS pools are healthy. If<br>
+you have multiple drives, using RAID10 in Rockstor will significantly increase your<br>
+readiwrite speeds, helping you get closer to saturating that 2.5 Gb link.</p></div><div class="el-p"><p dir="auto">Next Step: Are you comfortable using the Rockstor WebUI for this, or would you prefer</p></div><div class="el-p"><p dir="auto">the specific nmcli (Network Manager) commands to do this via the terminal?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">Rockstor WebUI - | have RAIDO.</p></div><div class="el-p"><p dir="auto">Since you are using RAIDO, your mechanical HDDs are actually fast enough to saturate a<br>
+2.5 Gb link. Two modern HDDs in RAIDO can easily hit 300-400 MB/s, which is higher<br>
+than the 280 MB/s limit of a single 2.5 GbE port.</p></div><div class="el-p"><p dir="auto">However, even with RAIDO, do not aggregate (LACP). In Rockstor/Linux, aggregation<br>
+doesn’t magically combine two 2.5 Gb links into one 5 Gb pipe for a single sync task; it just<br>
+allows two separate tasks to run at 2.5 Gb each.</p></div><div class="el-p"><p dir="auto">Here is how to set up your High-Speed Syne Lane in the Rockstor WebUI:</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">
+<p>Configure the Private "Sync Lane"<br>
+Connect a Caté cable directly between the Port 2 of both NAS units.</p>
+</li>
+<li data-line="2" dir="auto">
+<p>Log into NAS-A WebUI.</p>
+</li>
+<li data-line="4" dir="auto">
+<p>Navigate to System &gt; Network.</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">bod</p></div><div class="el-p"><p dir="auto">Identify the second 2.5 Gb interface (likely eth1 or enp2s6 ). Click the Pencil icon<br>
+(Edit).</p></div><div class="el-p"><p dir="auto">hal</p></div><div class="el-p"><p dir="auto">Mode: Static.</p></div><div class="el-p"><p dir="auto">cou</p></div><div class="el-p"><p dir="auto">IP Address: 10.0.0.1</p></div><div class="el-p"><p dir="auto">=</p></div><div class="el-p"><p dir="auto">Netmask: 255.255.255.0</p></div><div class="el-p"><p dir="auto">~</p></div><div class="el-p"><p dir="auto">Gateway: LEAVE EMPTY. (If you put a gateway here, Rockstor will try to send internet<br>
+traffic through the other NAS, which will fail).</p></div><div class="el-p"><p dir="auto">2</p></div><div class="el-p"><p dir="auto">Submit.</p></div><div class="el-p"><p dir="auto">2</p></div><div class="el-p"><p dir="auto">Repeat on NAS-B using IP 10.0.0.2.</p></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">Set Up the Replication (The "Fast Way")</li>
+</ol></div><div class="el-p"><p dir="auto">Rockstor’s Replication is built on btrf's send/receive , which is perfect for your RAIDO<br>
+setup because it moves data in large, efficient blocks.</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">
+<p>On NAS-A, go to Storage &gt; Replication.</p>
+</li>
+<li data-line="2" dir="auto">
+<p>Click Add Remote Appliance.</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">bod</p></div><div class="el-p"><p dir="auto">For the IP/Hostname, enter 10.0.0.2 (the private IP of NAS-B).</p></div><div class="el-p"><p dir="auto">B</p></div><div class="el-p"><p dir="auto">. Follow the prompts to exchange SSH keys.</p></div><div class="el-p"><p dir="auto">cou</p></div><div class="el-p"><p dir="auto">When you create a Replication Task, ensure you select the Share on your RAIDO<br>
+pool.<br>
+3. Why RAIDO + 2.5 Gb is the "Sweet Spot"</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>The Math: A single 2.5 Gb link caps at ~280 MB/s. Your RAIDO mechanical array can<br>
+likely do ~350 MB/s.</p>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>
+<p>The Bottle Neck: You will finally be limited by the 2.5 Gb network port rather than the<br>
+drives. This is the best-case scenario for performance.</p>
+</li>
+</ul></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>The Risk Reminder: Since you are using RAIDO, if one drive fails in either NAS, all<br>
+data on that NAS is lost. Ensure your sync is a "backup" and not your only copy of<br>
+the data.</li>
+</ul></div><div class="el-p"><p dir="auto">Pro Tip for Rockstor Performance:<br>
+In the WebUI, go to your Pool settings and ensure Compression is set to Zstd. BTRFS will<br>
+compress data before it hits the network/disk, which can actually push your "effective"<br>
+transfer speed even higher than 280 MBS for compressible files.</p></div><div class="el-p"><p dir="auto">Next Step: Do you need help verifying if the two NAS units are actually talking to each</p></div><div class="el-p"><p dir="auto">other over that new 10.0.0.x private line before you start the sync?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">yes</p></div><div class="el-p"><p dir="auto">To verify that your two AS5202T units are communicating over the new 10.0.0.x "syne</p></div><div class="el-p"><p dir="auto">lane," follow these steps.</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">Check Status in the Rockstor WebUI</li>
+</ol></div><div class="el-p"><p dir="auto">1, Navigate to System &gt; Network on both NAS units.</p></div><div class="el-ol"><ol start="2">
+<li data-line="0" dir="auto">
+<p>Locate the second interface (e.g., eth).</p>
+</li>
+<li data-line="2" dir="auto">
+<p>Ensure the Status shows as Connected or Up. If it says "Disconnected," check the<br>
+physical cable between the two NAS units. @</p>
+</li>
+<li data-line="5" dir="auto">
+<p>Verify Connectivity via Terminal (The Most Reliable Way)</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">Since Rockstor doesn't have a built-in "Ping" button in the WebUI, you should use the<br>
+terminal (SSH into the NAS or use the local console).</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto">
+<p>Log into NAS-A (10.0.0.1) via SSH or console.</p>
+</li>
+<li data-line="2" dir="auto">
+<p>Ping NAS-B by typing the following command:</p>
+</li>
+</ol></div><div class="el-p"><p dir="auto">bash</p></div><div class="el-p"><p dir="auto">ping -I ethl 10.0.0.2</p></div><div class="el-p"><p dir="auto">Use code with caution. oO</p></div><div class="el-p"><p dir="auto">(Note: Replace eth1 with the actual name of your 2.5 Gb interface found in the<br>
+WebUI).</p></div><div class="el-ol"><ol start="3">
+<li data-line="0" dir="auto">Interpret the Results:</li>
+</ol></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>Success: You will see lines like 64 bytes from 10.0.0.2: icmp seq=1 ttl=64<br>
+time=0.123 ms . This means the “fast lane" is working.</li>
+</ul></div><div class="el-p"><p dir="auto">Failure: If you see Destination Host Unreachable, there is a configuration error<br>
+(likely a typo in the IP or Subnet Mask). @<br>
+3. Verify the Route</p></div><div class="el-p"><p dir="auto">To ensure Rockstor knows to use the 2.5 Gb cable for the 10.0.0.x traffic, run this<br>
+command:</p></div><div class="el-p"><p dir="auto">bash</p></div><div class="el-p"><p dir="auto">ip route get 10.0.0.2</p></div><div class="el-p"><p dir="auto">Use code with caution, oO</p></div><div class="el-p"><p dir="auto">It should respond with something like 1.0.0.2 dev ethl src 10.0.0.1. This confirms<br>
+that traffic destined for the other NAS will stay on the direct cable and not try to go<br>
+through your router.</p></div><div class="el-p"><p dir="auto">Troubleshooting Tips</p></div><div class="el-ul"><ul class="has-list-bullet">
+<li data-line="0" dir="auto"><span class="list-bullet"></span>
+<p>No Gateway: Ensure you left the Gateway field empty for the 10.0.0.x interfaces. If<br>
+you added one, it can cause "IP conflicts" or routing loops.</p>
+</li>
+<li data-line="3" dir="auto"><span class="list-bullet"></span>
+<p>Firewall: Rockstor’s default firewall usually allows ICMP (ping) between local<br>
+interfaces, but if it fails, double-check that you haven't set overly restrictive rules in<br>
+System &gt; Services &gt; Firewall. 2</p>
+</li>
+</ul></div><div class="el-p"><p dir="auto">Next Step: Once you've confirmed the ping works, are you ready to set up the BTRFS<br>
+Replication task to start moving data?</p></div><div class="el-p"><p dir="auto">&lt; 6 @</p></div><div class="el-p"><p dir="auto">AM sites</p></div><div class="el-p"><p dir="auto">StarTech.com USB-C to Gigabit<br>
+Ethernet Adapter - A+ Office Supply<br>
+StarTech.com USB-C to Gigabit<br>
+Ethernet Adapter - USB 3.0 - USB 3....<br>
+‘A+ Office Supply</p></div><div class="el-p"><p dir="auto">Amazon.com: Asix Ax88179</p></div><div class="el-p"><p dir="auto">USB to Ethernet Adapter, 1000Mbps Plug and Play<br>
+Ethernet Adapter with USB 3.0, Driver Free, RJ4S...</p></div><div class="el-p"><p dir="auto">‘Amazon.com</p></div><div class="el-p"><p dir="auto">RTLB111H(S)-CG - Realtek</p></div><div class="el-p"><p dir="auto">The RTLIIH/RTL8TIHS supports the PCI Express<br>
+1 bus interface for host communications with..</p></div><div class="el-p"><p dir="auto">M2 Realtek</p></div><div class="el-p"><p dir="auto">Show all</p></div><div class="el-p"><p dir="auto">2 P)m 11 sites</p></div><div class="el-p"><p dir="auto">NICGIGA 2.5 G Base-T PCle Network<br>
+Adapter, Realtek RTL8125B ...<br>
+Product Summary: NICGIGA 2.5G<br>
+Base-T PCle Network Adapter...</p></div><div class="el-p"><p dir="auto">@ Amazon.com</p></div><div class="el-p"><p dir="auto">AX3000 Multi-Gigabit Wi-Fi 6<br>
+Router with Two 2.5G Ports</p></div><div class="el-p"><p dir="auto">Archer AXS5 Pro <em> AX3000 Wi-Fi<br>
+6Everything at High Speed. </em> Two 2...</p></div><div class="el-p"><p dir="auto">-P wwwetp-link.com</p></div><div class="el-p"><p dir="auto">How to get gigabit speeds?<br>
+| Page 2</p></div><div class="el-p"><p dir="auto">Oct 7, 2022 — If you want to<br>
+be able to utilize the router...</p></div><div class="el-p"><p dir="auto">G,,, 1-Bli the Computer Guy</p></div><div class="el-p"><p dir="auto">Show all</p></div><div class="el-p"><p dir="auto">@DD 12 sites</p></div><div class="el-p"><p dir="auto">How to Get the Best Transfer<br>
+Speeds from Your NAS Device</p></div><div class="el-p"><p dir="auto">‘Aug 14, 2023 — Most consumer<br>
+devices do not support 10 GbE...</p></div><div class="el-p"><p dir="auto">@% How-To Geek</p></div><div class="el-p"><p dir="auto">Trying to get 2.5gbe transfer rate |.<br>
+between two PCs... - Reddit<br>
+= ee</p></div><div class="el-p"><p dir="auto">‘Aug 17, 2023 — Honestly, looking at =e<br>
+your little graphic there... Ifyou only... (fi (fll</p></div><div class="el-p"><p dir="auto">© Reddit</p></div><div class="el-p"><p dir="auto">Why is nas file transfer limited to<br>
+120mbs? - Facebook</p></div><div class="el-p"><p dir="auto">Nov 6, 2025 — You would have to be<br>
+able to read and write at least 1.25 G...</p></div><div class="el-p"><p dir="auto">Facebook</p></div><div class="el-p"><p dir="auto">Show all</p></div><div class="el-p"><p dir="auto">@A 9sites</p></div><div class="el-p"><p dir="auto">Link Aggregation question. : r/homelab - Reddit</p></div><div class="el-p"><p dir="auto">Nov 17, 2020 — Comments Section * rst-2cv. + Sy<br>
+ago « Edited Sy ago. If the link aggregation protoc...</p></div><div class="el-p"><p dir="auto">© Reddit</p></div><div class="el-p"><p dir="auto">Dual 2.5Gb to achieve full SGb : r/asustor - Reddit</p></div><div class="el-p"><p dir="auto">Dec 30, 2023 — Just a heads up, if you check the<br>
+box on the SMB tab for Multiple channels, it will.</p></div><div class="el-p"><p dir="auto">© Reddit</p></div><div class="el-p"><p dir="auto">Cheapest way to use SGbps Asustor NAS<br>
+networking? - Reddit</p></div><div class="el-p"><p dir="auto">Nov 30, 2021 — How many clients? if you only have<br>
+‘one or two and you connect over smb protocol, yo...</p></div><div class="el-p"><p dir="auto">© Reddit</p></div><div class="el-p"><p dir="auto">Show all</p></div><div class="el-p"><p dir="auto">Both 19 sites</p></div><div class="el-p"><p dir="auto">Why | Love Rockstor on our<br>
+Storinators</p></div><div class="el-p"><p dir="auto">Sep 29, 2015 — So to sum up,<br>
+Rockstor is a solid Btrfs+Linux-...</p></div><div class="el-p"><p dir="auto">® 4sDrives</p></div><div class="el-p"><p dir="auto">LACP SMB NAS Optimization -<br>
+TrueNAS General - TrueNAS... A</p></div><div class="el-p"><p dir="auto">Feb 26, 2025 — Overview: Combining LS A</p></div><div class="el-p"><p dir="auto">two 2.5 GbE links into a single 5 GbE..</p></div><div class="el-p"><p dir="auto">© TrueNAS Community Forums</p></div><div class="el-p"><p dir="auto">TerraMaster F4-212-2G 4bay Private<br>
+Cloud NAS review — Speedy local...</p></div><div class="el-p"><p dir="auto">Mar 14, 2024 — The challenge comes<br>
+when you have multiple clients.<br>
+‘th. GamingTrend</p></div><div class="el-p"><p dir="auto">Show all</p></div><div class="el-p"><p dir="auto">@DO 5 sites</p></div><div class="el-p"><p dir="auto">Network — Rockstor documentation</p></div><div class="el-p"><p dir="auto">Rockstor supports basic network<br>
+configuration from the Web-UI...</p></div><div class="el-p"><p dir="auto">@ Rockstor</p></div><div class="el-p"><p dir="auto">Using command line tools<br>
+to test and verify network...</p></div><div class="el-p"><p dir="auto">Sep 23,2021—sonowthat » 5m<br>
+we have an IP address set... :</p></div><div class="el-p"><p dir="auto">@% ‘outube- David Dalton</p></div><div class="el-p"><p dir="auto">How to check the network connection between<br>
+two computers?</p></div><div class="el-p"><p dir="auto">Apr 29, 2024 — We can simply use the Ping and<br>
+Telnet command to check the network connection.</p></div><div class="el-p"><p dir="auto">® Splashtop</p></div><div class="el-p"><p dir="auto">Show all</p></div><div class="footer"><div class="data-bar"></div></div></div></div></div><div id="right-content" class="leaf" style="--sidebar-width: var(--sidebar-width-right);"><div id="right-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme-toggle-input" id=""><input class="theme-toggle-input" type="checkbox" id="theme-toggle-input"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content-wrapper"><div id="right-sidebar-content" class="leaf-content"><div class="graph-view-wrapper"><div class="feature-header"><div class="feature-title">Interactive Graph</div></div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<div class="graph-icon graph-global" role="button" aria-label="Global Graph" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-git-fork"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"></path><path d="M12 12v3"></path></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div id="outline" class=" tree-container"><div class="feature-header"><div class="feature-title">Table Of Contents</div><button class="clickable-icon nav-action-button tree-collapse-all" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-item" data-depth="1"><a class="tree-item-self is-clickable" href="books/rockstor-networking.html#Rockstor_Networking_0" data-path="#Rockstor_Networking_0"><div class="tree-item-inner heading-link" heading-name="Rockstor Networking">Rockstor Networking</div></a><div class="tree-item-children"></div></div></div></div></div><script defer="">let rs = document.querySelector("#right-sidebar"); rs.classList.toggle("is-collapsed", window.innerWidth < 768); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></div></div></body></html>
